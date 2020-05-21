@@ -1,0 +1,59 @@
+#%RAML 1.0
+title: PAO
+version: v1
+baseUri: /localhost
+
+types:
+    api_response_id:
+      properties:
+        success: boolean
+        code: number
+        message: string
+        data: object
+      example:
+        success: true
+        code: 2
+        message: SUCCESS
+        data:
+          id: e4b79209-7088-4d82-831b-91dcb5478105
+    api_response_ok:
+      properties:
+        success: boolean
+        code: number
+        message: string
+        data: string
+      example:
+        success: true
+        code: 2
+        message: SUCCESS
+        data: ok
+    api_response_ok_object:
+      properties:
+        success: boolean
+        code: number
+        message: string
+        data: object
+    api_response_ok_list:
+      properties:
+        success: boolean
+        code: number
+        message: string
+        data: array
+      
+/health-check:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            properties:
+              success: boolean
+              code: number
+              message: string
+              data: array
+            example:
+              success: true
+              code: 2
+              message: ""
+              data:
+                - application: "communication"

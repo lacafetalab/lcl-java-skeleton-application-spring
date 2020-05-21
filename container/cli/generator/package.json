@@ -1,0 +1,28 @@
+{
+  "name": "cli",
+  "version": "0.0.1",
+  "description": "cli ddd java",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.ts*'",
+    "lint-fix": "tslint -c tslint.json --fix 'src/**/*.ts*'"
+  },
+  "author": "Jose Guillermo",
+  "license": "MIT",
+  "dependencies": {
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3"
+  },
+  "_moduleAliases": {
+    "@sdk": "./src/sdk"
+  }
+}

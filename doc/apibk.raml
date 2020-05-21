@@ -1,0 +1,406 @@
+#%RAML 1.0
+
+title: PAO Console
+version: v1
+baseUri: http://pao-console-qa.lacafetalab.com
+
+uses: 
+  shapes: ./shapes/shapes.raml
+
+traits:
+  trait-header: !include ./traits/trait-header.raml
+  trait-auth_error: !include ./traits/response_auth_expire.raml
+  trait-invalid_course_unity_error: !include ./traits/invalid_course_unity_in_path_errors.raml
+  
+/admin/courses:
+  post:
+    is: [trait-header, trait-auth_error]
+    description: Create one course.
+    body:
+      application/json:
+        type: shapes.create_course_request
+        example: !include ./examples/create_course/create_course_request.json
+        
+    responses:
+      200:
+        body:
+          application/json:
+            type: shapes.response_type
+            example: !include ./examples/create_course/create_course_response_ok.json
+      409:
+        body:
+          application/json:
+            type: shapes.response_type
+            examples: 
+              course_name_exists: !include ./examples/create_course/create_course_error_432_name_exists.json
+      400:
+        body:
+          application/json:
+            type: shapes.response_type
+            examples: 
+              course_name_invalid: !include ./examples/create_course/create_course_error_420_name_invalid.json
+              course_description_invalid: !include ./examples/create_course/create_course_error_421_description_invalid.json
+              course_video_url_invalid: !include ./examples/create_course/create_course_error_422_video_url_invalid.json
+              course_width_invalid: !include ./examples/create_course/create_course_error_423_width_invalid.json
+              course_height_invalid: !include ./examples/create_course/create_course_error_424_height_invalid.json
+              course_image_url_invalid: !include ./examples/create_course/create_course_error_425_image_url_invalid.json
+              course_introduction_invalid: !include ./examples/create_course/create_course_error_426_introduction_invalid.json
+              course_course_achievements_invalid: !include ./examples/create_course/create_course_error_427_course_achievements_invalid.json
+              course_unity_name_invalid: !include ./examples/create_course/create_course_error_428_unity_name_invalid.json
+              course_unity_description_invalid: !include ./examples/create_course/create_course_error_429_unity_description_invalid.json
+              course_unity_introduction_invalid: !include ./examples/create_course/create_course_error_430_unity_introduction_invalid.json
+              course_unity_name_duplicated: !include ./examples/create_course/create_course_error_434_unity_name_duplicated.json
+              course_course_achievements_duplicated: !include ./examples/create_course/create_course_error_435_course_achievements_duplicated.json
+              course_unity_achievements_duplicated: !include ./examples/create_course/create_course_error_436_unity_achievements_duplicated.json
+              course_unity_invalid: !include ./examples/create_course/create_course_error_438_unities_invalid.json
+              course_unity_order_invalid: !include ./examples/create_course/create_course_error_440_unity_order_invalid.json
+              course_unity_order_duplicated: !include ./examples/create_course/create_course_error_441_unity_order_duplicated.json
+              course_level_invalid: !include ./examples/create_course/create_course_error_449_level_invalid.json
+              course_level_invalid_length: !include ./examples/create_course/create_course_error_449_level_invalid_length.json
+              course_language_invalid: !include ./examples/create_course/create_course_error_451_language_invalid.json
+              course_language_invalid_length: !include ./examples/create_course/create_course_error_451_language_invalid_length.json
+              course_content_type: !include ./examples/create_course/create_course_error_452_content_type_invalid.json
+              course_content_types: !include ./examples/create_course/create_course_error_452_content_types_invalid.json
+  /{course-id}:
+    get:
+      is: [trait-header, trait-auth_error]
+      description: Get one course.
+          
+      responses:
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_course/get_course_response_ok.json
+        404:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_course/get_course_response_error_433_course_not_found.json
+        400:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_course/get_course_response_error_course_id_not_valid.json
+    
+    /publish:
+      post:
+        is: [trait-header, trait-auth_error]
+        description: Publish the course.
+        responses: 
+          200:
+            body:
+              application/json:
+                type: shapes.response_type
+                example: !include ./examples/general/response_no_data_ok.json
+          400:
+            body: 
+              application/json:
+                type: shapes.response_type
+                example: !include ./examples/examples/publish_course/publish_course_error_438_missing_evaluations.json
+          404:
+            body:
+              application/json:
+                type: shapes.response_type
+                example: !include ./examples/get_course/get_course_response_error_433_course_not_found.json
+    /unities:
+      post:
+        is: [trait-header, trait-auth_error]
+        description: Create unities related to one course.
+        body:
+          application/json:
+            type: shapes.create_course_unities_request
+            example: !include ./examples/create_course_unities/create_course_unities_request.json
+           
+        responses: 
+          200:
+            body:
+              application/json:
+                type: shapes.response_type
+                example: !include ./examples/general/response_no_data_ok.json
+          404:
+            body:
+              application/json:
+                type: shapes.response_type
+                example: !include ./examples/get_course/get_course_response_error_433_course_not_found.json
+          400:
+            body:
+              application/json:
+                type: shapes.response_type
+                examples: 
+                  course_id_invalid: !include ./examples/get_course/get_course_response_error_course_id_not_valid.json
+                  course_unity_name_invalid: !include ./examples/create_course/create_course_error_428_unity_name_invalid.json
+                  course_unity_description_invalid: !include ./examples/create_course/create_course_error_429_unity_description_invalid.json
+                  course_unity_introduction_invalid: !include ./examples/create_course/create_course_error_430_unity_introduction_invalid.json
+                  course_unity_name_duplicated: !include ./examples/create_course/create_course_error_434_unity_name_duplicated.json
+                  course_unity_achievements_duplicated: !include ./examples/create_course/create_course_error_436_unity_achievements_duplicated.json
+                  course_unity_name_duplicated_in_stored: !include ./examples/create_course_unities/create_course_unities_error_437_unity_name_same_stored.json
+                  course_unity_invalid: !include ./examples/create_course/create_course_error_438_unities_invalid.json
+                  course_unity_order_invalid: !include ./examples/create_course/create_course_error_440_unity_order_invalid.json
+                  course_unity_order_duplicated: !include ./examples/create_course/create_course_error_441_unity_order_duplicated.json
+                  course_unity_order_duplicated_in_stored: !include ./examples/create_course_unities/create_course_unities_error_442_unity_order_in_stored.json
+                  
+      /{unity-id}/themes:
+        post:
+          is: [trait-header, trait-auth_error, trait-invalid_course_unity_error]
+          description: Create a theme in the course-unity.
+          body:
+            application/json:
+              type: shapes.create_theme_request
+              example: !include ./examples/create_theme/create_theme_request.json
+          
+          responses: 
+            200:
+              body: 
+                application/json:
+                  type: shapes.response_type
+                  example: !include ./examples/create_theme/create_theme_response_ok.json
+            400:
+              body: 
+                application/json:
+                  type: shapes.response_type
+                  examples:
+                    invalid_name: !include ./examples/create_theme/create_theme_error_420_name_invalid.json
+                    invalid_order: !include ./examples/create_theme/create_theme_error_421_order_invalid.json
+                    invalid_content_url: !include ./examples/create_theme/create_theme_error_426_content_url_invalid.json
+                    invalid_contents: !include ./examples/create_theme/create_theme_error_428_contents_invalid.json
+                    invalid_content_order: !include ./examples/create_theme/create_theme_error_429_content_order_repeated.json
+                    invalid_duration: !include ./examples/create_theme/create_theme_error_431_content_duration_invalid.json
+                    invalid_weeknumber: !include ./examples/create_theme/create_theme_error_436_weeknumber_invalid.json
+                    inconsistent_weeknumber: !include ./examples/create_theme/create_theme_error_436_weeknumber_inconsistence.json
+                    invalid_content_type: !include ./examples/create_theme/create_theme_error_434_content_type_invalid.json
+                    invalid_content_description: !include ./examples/create_theme/create_theme_error_435_content_description_invalid.json
+            409:
+              body: 
+                application/json:
+                  type: shapes.response_type
+                  examples:
+                    name_repeated: !include ./examples/create_theme/create_theme_error_422_name_repeated.json
+                    order_repeated: !include ./examples/create_theme/create_theme_error_423_order_repeated.json
+        get:
+          is: [trait-header, trait-auth_error, trait-invalid_course_unity_error]
+          description: List the themes in the course-unity
+          
+          responses: 
+            200:
+              body: 
+                application/json:
+                  type: shapes.response_type
+                  example: !include ./examples/list_themes/list_themes_response_ok.json
+          
+        /{theme-id}:
+          get:
+            is: [trait-header, trait-auth_error, trait-invalid_course_unity_error]
+            description: Get one theme
+            
+            responses: 
+              200:
+                body: 
+                  application/json:
+                    type: shapes.response_type
+                    example: !include ./examples/get_theme/get_theme_response_ok.json
+              404:
+                body: 
+                  application/json:
+                    type: shapes.response_type
+                    examples: 
+                      theme_not_found: !include ./examples/get_theme/get_theme_error_424_theme_found.json
+          /contents:
+            post:
+              is: [trait-header, trait-auth_error, trait-invalid_course_unity_error]
+              description: Create contents to one theme
+              
+              body:
+                application/json:
+                  type: shapes.create_theme_content_request
+                  example: !include ./examples/create_theme_contents/create_theme_contents_request.json
+                  
+
+              responses: 
+                200:
+                  body: 
+                    application/json:
+                      type: shapes.response_type
+                      example: !include ./examples/general/response_no_data_ok.json
+                404:
+                  body: 
+                    application/json:
+                      type: shapes.response_type
+                      examples: 
+                        theme_not_found: !include ./examples/get_theme/get_theme_error_424_theme_found.json
+
+  /{course-code}/evaluations/process:
+    post:
+      is: [trait-header, trait-auth_error]
+      description: Process evaluations of one course by its course code.
+
+      responses: 
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/general/response_no_data_ok.json
+        404:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_course/get_course_response_error_433_course_not_found.json
+  
+  /{course-id}/evaluations:
+    get:
+      is: [trait-header, trait-auth_error]
+      description: List the evaluations associate to one course specified by its course-id.
+
+      responses: 
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/evaluations/list_evalluations_response_ok.json
+          
+/admin/videos:
+  post:
+    is: [trait-header, trait-auth_error]
+    description: Create one video.
+    body:
+      application/json:
+        type: shapes.create_video_request
+        example: !include ./examples/create_video/create_video_request.json
+        
+    responses:
+      200:
+        body:
+          application/json:
+            type: shapes.response_type
+            example: !include ./examples/create_video/create_video_response_ok.json
+      400:
+        body:
+          application/json:
+            type: shapes.response_type
+            examples: 
+              video_name_invalid: !include ./examples/create_video/create_video_error_445_name_invalid.json
+              video_name_invalid_length: !include ./examples/create_video/create_video_error_445_name_invalid_length.json
+              video_description_invalid: !include ./examples/create_video/create_video_error_446_description_invalid.json
+              video_description_invalid_length: !include ./examples/create_video/create_video_error_446_description_invalid_length.json
+              video_size_invalid: !include ./examples/create_video/create_video_error_447_size_invalid.json
+              video_size_invalid_value: !include ./examples/create_video/create_video_error_447_size_invalid_value.json
+              
+/{upload.link}:
+  patch:
+    description: Upload one video, you have just one opportunity to use a upload.link in a patch method.
+    
+    headers: 
+      Content-Type:
+        type: string
+        example: application/offset+octet-stream
+      Tus-Resumable:
+        type: string
+        example: 1.0.0
+      Upload-Offset:
+        type: number
+        example: 0
+      Accept:
+        type: string
+        example: application/vnd.vimeo.*+json;version=3.4
+    
+    body: 
+      application/octet-stream:
+        type: file
+        
+    responses: 
+      204:
+        body: 
+          text/plain: ""
+
+/admin/students:
+  post:
+    is: [trait-header, trait-auth_error]
+    description: Create one student.
+    body:
+      application/json:
+        type: shapes.create_student_request
+        example: !include ./examples/create_student/create_student_request.json
+        
+    responses:
+      200:
+        body:
+          application/json:
+            type: shapes.response_type
+            example: !include ./examples/create_student/create_student_response_ok.json
+      409:
+        body:
+          application/json:
+            type: shapes.response_type
+            examples: 
+              email_exists: !include ./examples/create_student/create_student_response_error_409_email_exists.json
+      400:
+        body:
+          application/json:
+            type: shapes.response_type
+            examples: 
+              email_invalid: !include ./examples/create_student/create_student_response_error_421_bad_email.json
+              document_type_invalid: !include ./examples/create_student/create_student_response_error_425_bad_document_type.json
+              document_number_invalid: !include ./examples/create_student/create_student_response_error_420_bad_document_number.json
+              firstname_invalid: !include ./examples/create_student/create_student_response_error_422_bad_firstname.json
+              lastname_invalid: !include ./examples/create_student/create_student_response_error_423_bad_lastname.json
+              auth_info_invalid: !include ./examples/create_student/create_student_response_error_426_bad_auth.json
+              password_invalid: !include ./examples/create_student/create_student_response_error_426_bad_password.json
+  
+  /batch:
+    post:
+      is: [trait-header, trait-auth_error]
+      description: |
+        Create students in batch from a csv file, the file must containg these header
+        EMAIL,CODE,DOCUMENTTYPE,DOCUMENTNUMBER,FIRSTNAME,LASTNAME,CAMPUS,ACADCAREER,
+        BIRTHDATE,PICTURE,COURSES,PASSWORD
+      body: 
+        multipart/form-data:
+          properties: 
+            file:
+              type: file
+              fileTypes: ['text/csv']
+
+      responses:
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/create_students_batch/create_students_batch_response_ok.json
+        400:
+          body:
+            application/json:
+              type: shapes.response_type
+              examples: 
+                some_rows_errors: !include ./examples/create_students_batch/create_students_batch_response_with_errors.json
+                no_rows_students: !include ./examples/create_students_batch/create_students_batch_error_429_no_rows.json
+                file_processing_error: !include ./examples/create_students_batch/create_students_batch_error_428_file_processing_error.json
+      
+  /{user-id}:
+    get:
+      is: [trait-header, trait-auth_error]
+      description: Get student info.
+      
+      responses:
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_student/get_student_response_ok.json
+        404:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_student/get_student_error_404_student_not_found.json
+
+/students:
+  /me:
+    get:
+      is: [trait-header, trait-auth_error]
+      description: Get student logged info.
+      
+      responses:
+        200:
+          body:
+            application/json:
+              type: shapes.response_type
+              example: !include ./examples/get_student/get_student_response_ok.json

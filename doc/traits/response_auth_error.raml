@@ -1,0 +1,15 @@
+#%RAML 1.0 Trait
+
+uses: 
+  shapes: ../shapes/shapes.raml
+
+responses: 
+  401:
+    body:
+      application/json:
+        type: shapes.response_type
+        example:
+          success: false
+          code: 401
+          message: Bad credentials
+          data: {}

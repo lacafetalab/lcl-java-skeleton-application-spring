@@ -1,0 +1,114 @@
+#%RAML 1.0 Library
+
+types:
+  
+  introduction_type:
+    properties: 
+      videoUrl:
+        type: datetime
+        required: false
+      imageUrl: string
+      width: integer
+      height: integer
+  
+  create_unity_request:
+    properties: 
+      name: string
+      description: string
+      order: number
+      introduction: introduction_type
+      achievements: string[]
+  
+  create_course_request:
+    properties: 
+      name: string
+      description: string
+      level: 
+        type: string
+        maxLength: 30
+      language: 
+        type: string
+        maxLength: 30
+      contentTypes: 
+        description: list of some of these items [VIDEO, AUDIO, PDF]
+        type: array
+        items: 
+          enum: [VIDEO, AUDIO, PDF]
+      introduction: introduction_type
+      achievements: string[]
+      unities: create_unity_request[]
+      utpCourseCodes: string[]
+  
+  response_type:
+    properties:
+      success: boolean
+      code: number
+      message: string
+      data: object
+
+  create_course_unities_request:
+    properties: 
+      unities: create_unity_request[]
+      
+  create_theme_request:
+    properties: 
+      name: string
+      order: number
+      weekNumber: number
+      contents: create_content_request[]
+      
+  create_content_request:
+    properties: 
+      title: string
+      order: number
+      type: 
+        type: string 
+        enum: [MULTIMEDIA, TASK]
+      description: 
+        description: required when type is TASK
+        type: string
+      formats: create_format_request[]
+
+  create_theme_content_request:
+    properties: 
+      contents: create_content_request[]
+
+  create_format_request:
+    properties: 
+      type:
+        type: string
+        enum: [VIDEO, AUDIO, PDF]
+      url: string
+      duration: number
+
+  
+  create_video_request:
+    properties: 
+      name: 
+        type: string
+        description: The name of the video
+      description: 
+        type: string
+        description: The description of the video
+      size: 
+        type: number
+        description: The size of the video you want to upload in bytes
+
+  create_student_request:
+    properties: 
+      email: string
+      code: string
+      documentType: 
+        enum: [DNI, CARNET_EXT]
+      documentNumber: string
+      firstName: string
+      lastName: string
+      campus: string
+      acadCareer: string
+      birthdate: string
+      picture: string
+      courses: string[]
+      auth:
+        properties:
+          password: string
+          

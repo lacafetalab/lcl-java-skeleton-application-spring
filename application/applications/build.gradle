@@ -1,0 +1,17 @@
+
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile project(":src:communication")
+
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE'
+	implementation 'org.postgresql:postgresql:42.2.6'
+}

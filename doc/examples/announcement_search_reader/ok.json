@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "code": 2,
+    "message": "",
+    "data": [
+        {
+            "id": "b70c651f-095e-44ae-9e5f-221b508b47ae",
+            "seen": false,
+            "announcement": {
+                "id": "2b66270c-ea6a-4615-906e-b53e0e734d97",
+                "title": "Title 1",
+                "description": "description 1",
+                "publishAt": "2020-06-14 09:06:49"
+            }
+        },
+        {
+            "id": "d21686f8-fb16-4b8d-ac48-7c8c73adc45b",
+            "seen": true,
+            "announcement": {
+                "id": "b5e26018-377f-4bae-93d7-7444c2fa9cb2",
+                "title": "Title 2",
+                "description": "description 2",
+                "publishAt": "2020-06-14 09:06:49"
+            }
+        },
+        {
+            "id": "f4f156c6-c559-4eda-8b93-84c0808be61a",
+            "seen": false,
+            "announcement": {
+                "id": "7b2ab4bf-e453-4b97-bf7b-550670090704",
+                "title": "Title 3",
+                "description": "description 3",
+                "publishAt": "2020-06-14 09:06:49"
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+#%RAML 1.0 Trait
+
+uses: 
+  shapes: ../shapes/shapes.raml
+
+responses: 
+  404:
+    body: 
+      application/json:
+        type: shapes.response_type
+        examples: 
+          course_not_found: !include ../examples/create_theme/create_theme_error_433_course_not_found.json
+          unity_not_found: !include ../examples/create_theme/create_theme_error_439_unity_not_found.json

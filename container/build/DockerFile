@@ -1,0 +1,7 @@
+FROM openjdk:11-jre
+WORKDIR /application
+EXPOSE 8081
+COPY ./applications.jar /application/applications.jar
+COPY ./entrypoint.sh /application/entrypoint.sh
+RUN chmod +x /application/entrypoint.sh
+ENTRYPOINT /application/entrypoint.sh

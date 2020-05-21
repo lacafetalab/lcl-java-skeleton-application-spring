@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app-pao-console:
+    image: $IMAGE_BUILD
+    ports:
+      - "8082:8082"
+    environment:
+      POSTGRES_DATABASE: pao_console_db
+      POSTGRES_HOST: "db"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      AUTH_BASE_URL: "http://localhost:8080"
+      AUTH_APIKEY: "wd56ngyw54szle5lj36ipg2rjtkd6qmeubgu2yuruchm2jcj5txa===="
+    networks: 
+      - pao_network
+
+networks:
+  pao_network:
+    external: true

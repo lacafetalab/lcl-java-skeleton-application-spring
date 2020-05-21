@@ -1,0 +1,13 @@
+package <%= package %>;
+
+import pe.lacafetalab.pao.sharedtest.domain.UuidMother;
+
+public final class <%= vo_name %>Mother {
+    public static <%= vo_name %> create(String value) {
+        return new <%= vo_name %>(value);
+    }
+
+    public static <%= vo_name %> random() {
+        return create(UuidMother.random());
+    }
+}

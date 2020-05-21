@@ -1,0 +1,12 @@
+rootProject.name = 'pao-communication'
+
+include ':applications'
+include ':src:communication'
+include ':src:shared'
+include ':src:sharedtest'
+
+buildCache {
+	local {
+		directory = "/build-cache"
+	}
+}

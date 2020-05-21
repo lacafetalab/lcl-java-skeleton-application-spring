@@ -1,0 +1,57 @@
+module:
+  path: "/application/src/communication"
+  package: "pe.lacafetalab.pao.communication.announcement"
+  name: "Announcement"
+  entities:
+    entity:
+      Announcement:
+        root: true
+        package: "domain"
+        properties:
+          id: id
+          title: string
+          description: string
+          authorId: id
+          classRoomId: id
+          publishAt:
+            type: datetime
+            required: false
+            default: now
+          courses: Course[]
+      Course:
+        package: "domain.course"
+        properties:
+          id: id
+          description: string
+    service:
+      create: "command"
+      publish: "query"
+    
+    endpoint: 
+      create: 
+        uri: "/announcement"
+        method: "POST"
+        service: "create"
+
+    sql:
+      properties:
+        id: id
+        title: text
+        description: text
+        authorId: id
+        classRoomId: id
+        publishAt: date
+      pk: "id"
+    message:
+      validate:
+        vo:
+          authorId:
+            required: "El authorId es requerido"
+            valid: "El authorId no es un valor válido"
+          classRoomId:
+            required: "El classRoomId es requerido"
+            valid: "El classRoomId no es un valor válido"
+          title:
+            required: "El titulo es requerido"
+          description:
+            required: "La descripcion es requerida"
