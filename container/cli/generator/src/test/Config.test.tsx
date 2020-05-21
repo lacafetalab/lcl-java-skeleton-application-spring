@@ -9,10 +9,23 @@ describe("config base one aggregate", () => {
     });
 
     test("properties", () => {
-        expect(["id", "name", "lastname", "description", "birthdate"]).toEqual(config.properties);
+        expect(config.properties).toEqual(["id", "name", "lastname", "description", "birthdate"]);
     });
+
     test("entity", () => {
         expect(config.entity).toEqual("User");
+    });
+
+    test("value object", () => {
+        expect(config.valueObject).toEqual(["UserId", "UserName", "UserLastname", "UserDescription", "UserBirthdate"]);
+    });
+
+    test("path", () => {
+        expect(config.path).toEqual("/application/src/communication");
+    });
+
+    test("package", () => {
+        expect(config.package).toEqual("pe.lacafetalab.pao.communication.user");
     });
 
 });
