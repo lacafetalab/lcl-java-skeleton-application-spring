@@ -24,5 +24,6 @@
   },
   "_moduleAliases": {
     "@sdk": "./src/sdk"
-  }
+  },
+  "keywords": []
 }

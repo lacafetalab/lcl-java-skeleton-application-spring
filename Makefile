@@ -3,7 +3,7 @@ SHELL:=/bin/bash
 
 ## GENERAL ##
 OWNER 			= pao
-SERVICE_NAME 	= communication
+SERVICE_NAME 	= skeleton
 
 ## RESULT_VARS ##
 PROJECT_NAME			= $(OWNER)-$(SERVICE_NAME)
@@ -15,9 +15,6 @@ export PORT_RAML_LIVE	= 3020
 
 UID:=$(shell id -u)
 GID:=$(shell id -g)
-
-include deploy/kubernetes/Makefile
-
 
 install-cli: ## build image to dev: make build
 	docker build -f container/cli/Dockerfile -t $(PROJECT_NAME):cli container/cli/
