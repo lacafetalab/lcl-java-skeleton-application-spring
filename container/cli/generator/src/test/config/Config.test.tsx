@@ -1,4 +1,4 @@
-import {Config} from "@sdk/Config";
+import {Config} from "@sdk/config/Config";
 import "jest";
 import {min} from "./data/data"
 
@@ -17,7 +17,11 @@ describe("config base one aggregate", () => {
     });
 
     test("value object", () => {
-        expect(config.valueObject).toEqual(["UserId", "UserName", "UserLastname", "UserDescription", "UserBirthdate"]);
+        expect(config.valueObject("id")).toEqual("UserId");
+        expect(config.valueObject("name")).toEqual("UserName");
+        expect(config.valueObject("lastname")).toEqual("UserLastname");
+        expect(config.valueObject("description")).toEqual("UserDescription");
+        expect(config.valueObject("birthdate")).toEqual("UserBirthdate");
     });
 
     test("path", () => {

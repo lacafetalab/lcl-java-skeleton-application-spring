@@ -1,4 +1,4 @@
-const coverageThreshold = 100;
+const coverageThreshold = 60;
 const collectCoverageFrom = [
     "src/sdk/**/*.ts",
     "!node_modules/**"
@@ -26,7 +26,7 @@ module.exports = {
     ],
     coverageThreshold: {
         global: {
-            branches: coverageThreshold,
+            branches: 40,
             functions: coverageThreshold,
             lines: coverageThreshold,
             statements: coverageThreshold

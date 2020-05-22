@@ -5,10 +5,10 @@ export function complete() {
         "package_applications": "pe.lacafetalab.pao.controller",
         "package": "pe.lacafetalab.pao.communication.user",
         "name": "User",
-        "entity": {
+        "properties": {
             "aggregate": {
                 "id": "id",
-                "name": "text",
+                "name": "string",
                 "lastname": "text",
                 "description": {
                     "type": "text",
@@ -90,7 +90,7 @@ export function min() {
             "aggregate": {
                 "id": "id",
                 "name": "string",
-                "lastname": "string",
+                "lastname": "text",
                 "description": {
                     "type": "text",
                     "required": false

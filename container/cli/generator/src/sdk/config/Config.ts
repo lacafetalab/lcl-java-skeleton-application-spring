@@ -3,7 +3,7 @@ const s = require("underscore.string");
 
 export class Config {
 
-    constructor(private _data: any) {
+    constructor(protected _data: any) {
     }
 
     get properties(): string[] {
@@ -26,12 +26,12 @@ export class Config {
         return this._data.package;
     }
 
-    get valueObject(): string[] {
-        const data: string[] = [];
-        for (const propertie in this._data.properties.aggregate) {
-            const propertiecapitalize = s(propertie).trim().capitalize().value();
-            data.push(`${this.entity}${propertiecapitalize}`);
-        }
-        return data
+    get mainPath(): string {
+        return `${this._data.path}/main/${this._data.package}`.replace(/\./g, "/");
+    }
+
+    valueObject(propertie: string): string {
+        const propertieCapitalize: string = s(propertie).trim().capitalize().value();
+        return `${this.entity}${propertieCapitalize}`;
     }
 }
