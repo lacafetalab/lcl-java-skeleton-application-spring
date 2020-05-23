@@ -1,0 +1,17 @@
+package <%= package %>;
+
+import pe.lacafetalab.pao.shared.domain.bus.query.Response;
+
+import java.util.List;
+
+public final class <%= class_name %> implements Response {
+    private final List<<%= response_class %>> <%= response_name %>;
+
+    public <%= class_name %>(List<<%= response_class %>> <%= response_name %>) {
+        this.<%= response_name %> = <%= response_name %>;
+    }
+
+    public List<<%= response_class %>> <%= response_name %>() {
+        return <%= response_name %>;
+    }
+}
