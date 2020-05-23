@@ -19,9 +19,23 @@ export class Template {
     get dataTemplate(): any {
         return this._dataTemplate;
     }
+
+    toObject():any{
+        return {
+            folder:this.folder,
+            file:this.file,
+            template:this.template,
+            dataTemplate:this.dataTemplate,
+        }
+    }
 }
 
 // tslint:disable-next-line:max-classes-per-file
 export abstract class AbstractGenerate {
     abstract get template(): Template[];
+    log(){
+        this.template.forEach(t=>{
+            console.log(t.toObject());
+        });
+    }
 }

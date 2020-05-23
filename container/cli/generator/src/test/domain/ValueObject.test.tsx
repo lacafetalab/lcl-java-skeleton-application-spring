@@ -34,8 +34,8 @@ describe("config value obeject one aggregate", () => {
         expect(templates[0].dataTemplate).toEqual({
             "className": "UserId",
             "message": {
-                "required": undefined,
-                "valid": undefined
+                "required": null,
+                "valid": null
             },
             "package": "pe.lacafetalab.pao.communication.user.domain",
             "type": {

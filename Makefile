@@ -23,6 +23,9 @@ run-cli: ## build image to dev: make build
 	@docker run --user $(UID):$(GID) --rm -v $(PWD)/container/cli/generator:/project  -v $(PWD)/application:/application $(PROJECT_NAME):cli
 	@cat $(PWD)/application/cli/diff/diff_color.txt
 
+run-cli-bash: ## build image to dev: make build
+	@docker run --user $(UID):$(GID) --rm -it -v $(PWD)/container/cli/generator:/project  -v $(PWD)/application:/application --entrypoint "bash" $(PROJECT_NAME):cli
+
 run-cli-test: ## build image to dev: make build
 	@docker run -t --rm -v $(PWD)/container/cli/generator:/project --workdir /project --entrypoint /project/test.sh $(PROJECT_NAME):cli
 

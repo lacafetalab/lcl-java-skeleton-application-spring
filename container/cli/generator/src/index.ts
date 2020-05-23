@@ -1,7 +1,13 @@
 import {Config} from "@sdk/config/Config";
-import {readYaml} from "@sdk/Util";
+import {generateFile, readYaml} from "@sdk/Util";
+import {ConfigValueObject} from "@sdk/config/ConfigValueObject";
+import {ValueObject} from "@sdk/domain/ValueObject";
 
 const object = readYaml("/project/src/config.yml");
 
-let config: Config = new Config({params: "hola"});
-console.log("saludos");
+const configValueObject = new ConfigValueObject(object);
+const valueObject = new ValueObject(configValueObject);
+
+valueObject.log();
+generateFile(valueObject.template)
+

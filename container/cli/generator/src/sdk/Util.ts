@@ -24,7 +24,7 @@ export function generateFile(list: Template[]) {
             // genera el archivo renderizado en la carpeta /render/....
             fs.mkdir(`/render${param.folder}`, {recursive: true}, (err: any) => {
                 if (err) throw err;
-                ejs.renderFile(param.template, param, {}, function (errtemp: any, str: any) {
+                ejs.renderFile(param.template, param.dataTemplate, {}, function (errtemp: any, str: any) {
                     if (errtemp) throw errtemp;
                     fs.writeFile(`/render${param.file}`, str, (errwf: any) => {
                         if (errwf) throw errwf;
@@ -35,7 +35,7 @@ export function generateFile(list: Template[]) {
         } else {
             fs.mkdir(param.folder, {recursive: true}, (errmk: any) => {
                 if (errmk) throw errmk;
-                ejs.renderFile(param.template, param, {}, function (errtemp:any, str:any) {
+                ejs.renderFile(param.template, param.dataTemplate, {}, function (errtemp:any, str:any) {
                     if (errtemp) throw errtemp;
                     fs.writeFile(param.file, str, (err: any) => {
                         if (err) throw err;
