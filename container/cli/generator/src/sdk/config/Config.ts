@@ -23,8 +23,8 @@ export class Config {
         const data: Event[] = [];
         for (const eventName in this._data.events) {
             data.push({
-                name: eventName,
-                className: this._data.events[event]
+                className: s.capitalize(eventName),
+                name : this._data.events[eventName]
             });
         }
         return data
