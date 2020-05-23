@@ -30,6 +30,10 @@ export class Config {
         return `${this._data.path}/main/${this._data.package}`.replace(/\./g, "/");
     }
 
+    get testPath(): string {
+        return `${this._data.path}/test/${this._data.package}`.replace(/\./g, "/");
+    }
+
     valueObject(propertie: string): string {
         const propertieCapitalize: string = s(propertie).trim().capitalize().value();
         return `${this.entity}${propertieCapitalize}`;
