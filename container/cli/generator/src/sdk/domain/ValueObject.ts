@@ -2,9 +2,11 @@ import {ConfigValueObject} from "@sdk/config/ConfigValueObject";
 import {AbstractGenerate, Template} from "@sdk/AbstractGenerate";
 
 export class ValueObject extends AbstractGenerate {
+    private config: ConfigValueObject;
 
-    constructor(private config: ConfigValueObject) {
-        super()
+    constructor(_data: any) {
+        super();
+        this.config = new ConfigValueObject(_data);
     }
 
     get folder(): string {
