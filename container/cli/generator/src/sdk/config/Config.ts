@@ -1,6 +1,11 @@
 // tslint:disable-next-line:no-var-requires
 const s = require("underscore.string");
 
+interface Event {
+    name: string,
+    className: string
+}
+
 export class Config {
 
     constructor(protected _data: any) {
@@ -10,6 +15,17 @@ export class Config {
         const data: string[] = [];
         for (const propertie in this._data.properties.aggregate) {
             data.push(propertie);
+        }
+        return data
+    }
+
+    get events(): Event[] {
+        const data: Event[] = [];
+        for (const eventName in this._data.events) {
+            data.push({
+                name: eventName,
+                className: this._data.events[event]
+            });
         }
         return data
     }
