@@ -4,8 +4,8 @@ import {Config} from "@sdk/config/Config";
 const s = require("underscore.string");
 
 interface PropertieMessage {
-    required?: string,
-    valid?: string
+    required?: string | null,
+    valid?: string | null
 }
 
 interface PropertieType {
@@ -58,11 +58,11 @@ export class ConfigValueObject extends Config {
         return types;
     }
 
-    propertieMessage(propertie:string):PropertieMessage | null{
+    propertieMessage(propertie: string): PropertieMessage | null {
         let message: PropertieMessage;
         message = {
-            required: undefined,
-            valid: undefined
+            required: null,
+            valid: null
         };
         const messageValue = this._data.message.validate.valueObject[propertie];
         if (typeof messageValue === "undefined") {

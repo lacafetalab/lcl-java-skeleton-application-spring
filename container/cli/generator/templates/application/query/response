@@ -1,0 +1,37 @@
+package <%= package %>;
+
+import lombok.Getter;
+import <%= package_domain %>.<%= entity_class%>;
+import pe.lacafetalab.pao.shared.domain.bus.query.Response;
+
+import java.util.Objects;
+
+@Getter
+final public class <%= class_name %> implements Response {
+    <%_ params.forEach(function(param){ _%>
+    private final String <%= param.propertie %>;
+    <%_ }); _%>
+
+    public <%= class_name %>(<%= str_vo_property_string %>) {
+        <%_ params.forEach(function(param){ _%>
+        this.<%= param.propertie %> = <%= param.propertie %>;
+        <%_ }); _%>
+    }
+
+    public static <%= class_name %> fromAggregate(<%= entity_class %> <%= entity_name %>) {
+        return new <%= class_name %>(<%= str_property_to_string %>);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof <%= class_name %>)) return false;
+        <%= class_name %> that = (<%= class_name %>) o;
+        return <%- str_vo_equals %>;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(<%= str_property %>);
+    }
+}

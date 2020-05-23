@@ -3,10 +3,10 @@ path_applications: /application/applications
 package_applications: pe.lacafetalab.pao.controller
 package: pe.lacafetalab.pao.communication.user
 name: User
-entity:
-  properties:
+properties:
+  aggregate:
     id: id
-    name: text
+    name: string
     lastname: text
     description:
       type: text

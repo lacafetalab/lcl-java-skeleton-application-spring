@@ -1,5 +1,4 @@
 import "jest";
-import {ConfigValueObject} from "@sdk/config/ConfigValueObject";
 import {ValueObject} from "@sdk/domain/ValueObject";
 import {complete} from "../config/data/data";
 import {Template} from "@sdk/AbstractGenerate";
@@ -7,8 +6,7 @@ import {Template} from "@sdk/AbstractGenerate";
 let valueObject: ValueObject;
 describe("config value obeject one aggregate", () => {
     beforeEach(() => {
-        const config = new ConfigValueObject(complete());
-        valueObject = new ValueObject(config);
+        valueObject = new ValueObject(complete());
     });
 
     test("valueObject folder", () => {
@@ -22,8 +20,7 @@ describe("config value obeject one aggregate", () => {
 let templates: Template[] = [];
 describe("config value obeject one aggregate", () => {
     beforeEach(() => {
-        const config = new ConfigValueObject(complete());
-        const valueObjectb = new ValueObject(config);
+        const valueObjectb = new ValueObject(complete());
         templates = valueObjectb.template;
     });
 
@@ -34,8 +31,8 @@ describe("config value obeject one aggregate", () => {
         expect(templates[0].dataTemplate).toEqual({
             "className": "UserId",
             "message": {
-                "required": undefined,
-                "valid": undefined
+                "required": null,
+                "valid": null
             },
             "package": "pe.lacafetalab.pao.communication.user.domain",
             "type": {
@@ -67,82 +64,66 @@ describe("config value obeject one aggregate", () => {
 });
 
 /*
-[
-  {
-    "_dataTemplate": {
-      "className": "User0",
-      "message": {},
-      "package": "pe.lacafetalab.pao.communication.user.domain",
-      "type": {
-        "default": null,
-        "required": true,
-        "type": ""
-      }
-    },
-    "_file": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User0.java",
-    "_folder": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain",
-    "_template": "/project/templates/domain/vo/"
-  },
-  {
-    "_dataTemplate": {
-      "className": "User1",
-      "message": {},
-      "package": "pe.lacafetalab.pao.communication.user.domain",
-      "type": {
-        "default": null,
-        "required": true,
-        "type": ""
-      }
-    },
-    "_file": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User1.java",
-    "_folder": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain",
-    "_template": "/project/templates/domain/vo/"
-  },
-  {
-    "_dataTemplate": {
-      "className": "User2",
-      "message": {},
-      "package": "pe.lacafetalab.pao.communication.user.domain",
-      "type": {
-        "default": null,
-        "required": true,
-        "type": ""
-      }
-    },
-    "_file": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User2.java",
-    "_folder": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain",
-    "_template": "/project/templates/domain/vo/"
-  },
-  {
-    "_dataTemplate": {
-      "className": "User3",
-      "message": {},
-      "package": "pe.lacafetalab.pao.communication.user.domain",
-      "type": {
-        "default": null,
-        "required": true,
-        "type": ""
-      }
-    },
-    "_file": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User3.java",
-    "_folder": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain",
-    "_template": "/project/templates/domain/vo/"
-  },
-  {
-    "_dataTemplate": {
-      "className": "User4",
-      "message": {},
-      "package": "pe.lacafetalab.pao.communication.user.domain",
-      "type": {
-        "default": null,
-        "required": true,
-        "type": ""
-      }
-    },
-    "_file": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User4.java",
-    "_folder": "/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain",
-    "_template": "/project/templates/domain/vo/"
+{
+  folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
+  file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserId.java',
+  template: '/project/templates/domain/vo/id',
+  dataTemplate: {
+    className: 'UserId',
+    package: 'pe.lacafetalab.pao.communication.user.domain',
+    type: { type: 'id', required: true, default: null },
+    message: { required: null, valid: null }
   }
-]
+}
+{
+  folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
+  file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserName.java',
+  template: '/project/templates/domain/vo/string',
+  dataTemplate: {
+    className: 'UserName',
+    package: 'pe.lacafetalab.pao.communication.user.domain',
+    type: { type: 'string', required: true, default: null },
+    message: {
+      required: 'El nombre es requerido',
+      valid: 'El nombre no es un valor válido'
+    }
+  }
+}
+{
+  folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
+  file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserLastname.java',
+  template: '/project/templates/domain/vo/text',
+  dataTemplate: {
+    className: 'UserLastname',
+    package: 'pe.lacafetalab.pao.communication.user.domain',
+    type: { type: 'text', required: true, default: null },
+    message: {
+      required: 'El apellido es requerido',
+      valid: 'El apellido no es un valor válido'
+    }
+  }
+}
+{
+  folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
+  file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserDescription.java',
+  template: '/project/templates/domain/vo/text',
+  dataTemplate: {
+    className: 'UserDescription',
+    package: 'pe.lacafetalab.pao.communication.user.domain',
+    type: { type: 'text', required: false, default: null },
+    message: { required: null, valid: null }
+  }
+}
+{
+  folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
+  file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserBirthdate.java',
+  template: '/project/templates/domain/vo/datetime',
+  dataTemplate: {
+    className: 'UserBirthdate',
+    package: 'pe.lacafetalab.pao.communication.user.domain',
+    type: { type: 'datetime', required: true, default: null },
+    message: { required: null, valid: null }
+  }
+}
 
 * */

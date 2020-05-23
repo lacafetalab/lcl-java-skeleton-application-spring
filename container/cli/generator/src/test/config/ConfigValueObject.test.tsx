@@ -53,8 +53,8 @@ describe("config message one aggregate", () => {
 
     test("type id no message", () => {
         expect(config.propertieMessage('id')).toEqual({
-            "required": undefined,
-            "valid": undefined
+            "required": null,
+            "valid": null
         });
     });
 

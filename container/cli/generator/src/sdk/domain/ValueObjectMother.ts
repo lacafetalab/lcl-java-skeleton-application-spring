@@ -1,7 +1,7 @@
 import {ConfigValueObject} from "@sdk/config/ConfigValueObject";
 import {AbstractGenerate, Template} from "@sdk/AbstractGenerate";
 
-export class ValueObject extends AbstractGenerate {
+export class ValueObjectMother extends AbstractGenerate {
     private config: ConfigValueObject;
 
     constructor(_data: any) {
@@ -10,7 +10,7 @@ export class ValueObject extends AbstractGenerate {
     }
 
     get folder(): string {
-        return `${this.config.mainPath}/domain`;
+        return `${this.config.testPath}/domain`;
     }
 
     get package(): string {
@@ -21,16 +21,15 @@ export class ValueObject extends AbstractGenerate {
         let template: Template[] = [];
         this.config.properties.forEach(propertie => {
             const type = this.config.propertieType(propertie);
-            const message = this.config.propertieMessage(propertie);
 
-            const className = this.config.valueObject(propertie);
+            const classEntity = this.config.valueObject(propertie);
+            const className = `${classEntity}Mother`;
             const file = `${this.folder}/${className}.java`;
-            const fileTemplate = `/project/templates/domain/vo/${type.type}`;
+            const fileTemplate = `/project/templates/domain/vo_mother/${type.type}`;
             const data = {
                 className,
                 package: this.package,
-                type,
-                message
+                classEntity
             };
             template.push(new Template(this.folder, file, fileTemplate, data));
         });

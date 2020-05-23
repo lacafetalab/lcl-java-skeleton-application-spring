@@ -1,6 +1,7 @@
 #!/bin/bash
 
-node /project/index.js
+#node /project/index.js
+npm run exec
 
 git config --global user.email "jguillermo@outlook.com"
 git config --global user.name "Jose Guillermo"

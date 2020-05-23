@@ -20,11 +20,14 @@ install-cli: ## build image to dev: make build
 	docker build -f container/cli/Dockerfile -t $(PROJECT_NAME):cli container/cli/
 
 run-cli: ## build image to dev: make build
-	@docker run --user $(UID):$(GID) --rm -v $(PWD)/container/cli/project:/project  -v $(PWD)/application:/application $(PROJECT_NAME):cli
+	@docker run --user $(UID):$(GID) --rm -v $(PWD)/container/cli/generator:/project  -v $(PWD)/application:/application $(PROJECT_NAME):cli
 	@cat $(PWD)/application/cli/diff/diff_color.txt
 
+run-cli-bash: ## build image to dev: make build
+	@docker run --user $(UID):$(GID) --rm -it -v $(PWD)/container/cli/generator:/project  -v $(PWD)/application:/application --entrypoint "bash" $(PROJECT_NAME):cli
+
 run-cli-test: ## build image to dev: make build
-	@docker run -t --rm -v $(PWD)/container/cli/project:/project --workdir /project --entrypoint /project/test.sh $(PROJECT_NAME):cli
+	@docker run -t --rm -v $(PWD)/container/cli/generator:/project --workdir /project --entrypoint /project/test.sh $(PROJECT_NAME):cli
 
 install: ## build image to dev: make build
 	docker build -f container/doc/Dockerfile -t $(IMAGE_RAML) container/doc/
