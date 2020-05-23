@@ -1,4 +1,7 @@
-import { Config } from '@sdk/Config';
+import {Config} from "@sdk/config/Config";
+import {readYaml} from "@sdk/Util";
 
-let config:Config = new Config({params:"hola"});
+const object = readYaml("/project/src/config.yml");
+
+let config: Config = new Config({params: "hola"});
 console.log("saludos");

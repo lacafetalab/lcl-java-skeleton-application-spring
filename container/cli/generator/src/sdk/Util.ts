@@ -15,29 +15,29 @@ export function generateFile(list: Template[]) {
         if (fs.existsSync(param.file)) {
             console.error(`exist : ${param.file}`);
             // copia el archivo original a /compare/....
-            fs.mkdir(`/compare${param.folder}`, { recursive: true }, (err) => {
+            fs.mkdir(`/compare${param.folder}`, {recursive: true}, (err: any) => {
                 if (err) throw err;
-                fs.copyFile(param.file, `/compare${param.file}`, (err) => {
-                    if (err) throw err;
+                fs.copyFile(param.file, `/compare${param.file}`, (errcp: any) => {
+                    if (errcp) throw errcp;
                 });
             });
             // genera el archivo renderizado en la carpeta /render/....
-            fs.mkdir(`/render${param.folder}`, { recursive: true }, (err) => {
+            fs.mkdir(`/render${param.folder}`, {recursive: true}, (err: any) => {
                 if (err) throw err;
-                ejs.renderFile(param.template, param, {}, function (err, str) {
-                    if (err) throw err;
-                    fs.writeFile(`/render${param.file}`, str, (err) => {
-                        if (err) throw err;
+                ejs.renderFile(param.template, param, {}, function (errtemp: any, str: any) {
+                    if (errtemp) throw errtemp;
+                    fs.writeFile(`/render${param.file}`, str, (errwf: any) => {
+                        if (errwf) throw errwf;
                     });
                 });
             });
 
-        }else{
-            fs.mkdir(param.folder, { recursive: true }, (err) => {
-                if (err) throw err;
-                ejs.renderFile(param.template, param, {}, function (err, str) {
-                    if (err) throw err;
-                    fs.writeFile(param.file, str, (err) => {
+        } else {
+            fs.mkdir(param.folder, {recursive: true}, (errmk: any) => {
+                if (errmk) throw errmk;
+                ejs.renderFile(param.template, param, {}, function (errtemp:any, str:any) {
+                    if (errtemp) throw errtemp;
+                    fs.writeFile(param.file, str, (err: any) => {
                         if (err) throw err;
                         console.log(`generated : ${param.file}`);
                     });
