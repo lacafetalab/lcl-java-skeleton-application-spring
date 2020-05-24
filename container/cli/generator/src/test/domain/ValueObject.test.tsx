@@ -38,7 +38,8 @@ describe("config value obeject one aggregate", () => {
             "type": {
                 "default": null,
                 "required": true,
-                "type": "id"
+                "type": "id",
+                "primitive": "String"
             }
         });
     });
@@ -57,7 +58,8 @@ describe("config value obeject one aggregate", () => {
             "type": {
                 "default": null,
                 "required": true,
-                "type": "string"
+                "type": "string",
+                "primitive": "String"
             }
         });
     });

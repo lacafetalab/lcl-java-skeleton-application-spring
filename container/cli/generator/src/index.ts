@@ -1,4 +1,4 @@
-import {generateFile, readYaml} from "./Util";
+import {generateFile, logTemplate, readYaml} from "./Util";
 import {ValueObject} from "@sdk/domain/ValueObject";
 import {ValueObjectMother} from "@sdk/domain/ValueObjectMother";
 import {Event} from "@sdk/domain/Event";
@@ -14,18 +14,19 @@ const events = new Event(_data);
 const aggregate = new Aggregate(_data);
 const dao = new Dao(_data);
 
-//valueObject.log();
+
+logTemplate(valueObject.template);
 generateFile(valueObject.template);
 
-//valueObjectMother.log();
+logTemplate(valueObjectMother.template);
 generateFile(valueObjectMother.template);
 
-//events.log();
+logTemplate(events.template);
 generateFile(events.template);
 
-//aggregate.log();
+logTemplate(aggregate.template);
 generateFile(aggregate.template);
 
-//dao.log();
+logTemplate(dao.template);
 generateFile(dao.template);
 
