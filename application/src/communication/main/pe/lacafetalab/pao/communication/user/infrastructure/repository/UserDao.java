@@ -24,7 +24,7 @@ public class UserDao extends GeneralEntity<User> {
     @Column(name = "id", length = 36)
     private String id;
 
-    @Column(name = "name", columnDefinition = "text")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "lastname", columnDefinition = "text")

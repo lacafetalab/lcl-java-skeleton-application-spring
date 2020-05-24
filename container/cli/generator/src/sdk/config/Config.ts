@@ -1,9 +1,17 @@
 // tslint:disable-next-line:no-var-requires
+import {ConfigUtil, ValueObjectPropertie} from "@sdk/config/ConfigUtil";
+
 const s = require("underscore.string");
 
 interface Event {
     name: string,
     className: string
+}
+
+interface RepositoryDao {
+    pk: string,
+    table: string,
+    columnName: any
 }
 
 export class Config {
@@ -24,10 +32,20 @@ export class Config {
         for (const eventName in this._data.events) {
             data.push({
                 className: s.capitalize(eventName),
-                name : this._data.events[eventName]
+                name: this._data.events[eventName]
             });
         }
         return data
+    }
+
+    get repository(): RepositoryDao {
+        const table: string = (this._data.repository.table) ? this._data.repository.table : s.underscored(this.entity);
+        const columnName: any = (this._data.repository.columnName) ? this._data.repository.columnName : {};
+        return {
+            pk: this._data.repository.pk,
+            table,
+            columnName
+        }
     }
 
     get entity(): string {
@@ -51,7 +69,10 @@ export class Config {
     }
 
     valueObject(propertie: string): string {
-        const propertieCapitalize: string = s(propertie).trim().capitalize().value();
-        return `${this.entity}${propertieCapitalize}`;
+        return ConfigUtil.valueObject(propertie, this.entity);
+    }
+
+    valueObjectProperties(properties: string[]): ValueObjectPropertie[] {
+        return ConfigUtil.valueObjectProperties(properties, this.entity);
     }
 }

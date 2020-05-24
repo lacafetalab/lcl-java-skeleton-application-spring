@@ -10,8 +10,9 @@ interface PropertieMessage {
 
 interface PropertieType {
     type: string,
+    primitive: string,
     required: boolean,
-    default?: any
+    default: any
 }
 
 export class ConfigValueObject extends Config {
@@ -23,6 +24,7 @@ export class ConfigValueObject extends Config {
     private propertieDefault(): PropertieType {
         return {
             type: "",
+            primitive: "",
             required: true,
             default: null,
         };
@@ -42,7 +44,23 @@ export class ConfigValueObject extends Config {
             //     propType.default = propertie.default;
             // }
         }
+        propType.primitive = this.primitivePropertie(propType.type);
         return propType;
+    }
+
+    private primitivePropertie(propertie: string): string {
+        let primitive = 'undefined';
+        switch (propertie) {
+            case "id":
+            case "string":
+            case "text":
+                primitive = "String";
+                break;
+            case "datetime":
+                primitive = "Date";
+                break;
+        }
+        return primitive;
     }
 
     private formatPropertie(propertie: string): PropertieType {

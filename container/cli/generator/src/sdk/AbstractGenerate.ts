@@ -1,4 +1,4 @@
-import {Config} from "@sdk/config/Config";
+import {ValueObjectPropertie} from "@sdk/config/ConfigUtil";
 
 const s = require("underscore.string");
 
@@ -21,15 +21,6 @@ export class Template {
     get dataTemplate(): any {
         return this._dataTemplate;
     }
-
-    toObject(): any {
-        return {
-            folder: this.folder,
-            file: this.file,
-            template: this.template,
-            dataTemplate: this.dataTemplate,
-        }
-    }
 }
 
 // tslint:disable-next-line:max-classes-per-file
@@ -48,14 +39,24 @@ export abstract class AbstractGenerate {
         properties.forEach(propertie => {
             str = str + ` && Objects.equals(${propertie}, that.${propertie})`;
         });
-        return s.ltrim(s.trim(str),'&& ');
+        return s.ltrim(s.trim(str), '&& ');
+    }
+
+    strPropertiesToString(properties: string[]) {
+        let str = "";
+        properties.forEach(propertie => {
+            str = str + `, ${propertie}.toString()`;
+        });
+        return s.trim(s.trim(str, ','));
+    }
+
+    strVoProperties(voProperties: ValueObjectPropertie[]): string {
+        let str = "";
+        voProperties.forEach(voPropertie => {
+            str = str + `, ${voPropertie.className} ${voPropertie.propertie}`;
+        });
+        return s.trim(s.trim(str, ','));
     }
 
     abstract get template(): Template[];
-
-    log() {
-        this.template.forEach(t => {
-            console.log(t.toObject());
-        });
-    }
 }

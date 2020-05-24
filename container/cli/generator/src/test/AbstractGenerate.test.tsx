@@ -1,5 +1,6 @@
 import "jest";
 import {AbstractGenerate, Template} from "@sdk/AbstractGenerate";
+import {ConfigUtil} from "@sdk/config/ConfigUtil";
 
 class GenerateImplement extends AbstractGenerate {
     get template(): Template[] {
@@ -45,5 +46,39 @@ describe("AbstractGenerate strEquals", () => {
     });
 });
 
+describe("AbstractGenerate str to string", () => {
+    beforeEach(() => {
+        generateImplement = new GenerateImplement();
+    });
+    test("AbstractGenerate str properties", () => {
+        expect(generateImplement.strPropertiesToString(['id', 'name', 'lastname'])).toEqual("id.toString(), name.toString(), lastname.toString()");
+    });
+    test("AbstractGenerate str one propertie", () => {
+        expect(generateImplement.strPropertiesToString(['id'])).toEqual("id.toString()");
+    });
+    test("AbstractGenerate str one empty", () => {
+        expect(generateImplement.strPropertiesToString([])).toEqual("");
+    });
+
+});
+
+describe("AbstractGenerate str vo properties", () => {
+    beforeEach(() => {
+        generateImplement = new GenerateImplement();
+    });
+    test("AbstractGenerate str properties", () => {
+        const voProperties = ConfigUtil.valueObjectProperties(['id', 'name', 'lastname'],"User");
+        expect(generateImplement.strVoProperties(voProperties)).toEqual("UserId id, UserName name, UserLastname lastname");
+    });
+    test("AbstractGenerate str one propertie", () => {
+        const voProperties = ConfigUtil.valueObjectProperties(['id'],"User");
+        expect(generateImplement.strVoProperties(voProperties)).toEqual("UserId id");
+    });
+    test("AbstractGenerate str one empty", () => {
+        const voProperties = ConfigUtil.valueObjectProperties([],"User");
+        expect(generateImplement.strVoProperties(voProperties)).toEqual("");
+    });
+
+});
 
 

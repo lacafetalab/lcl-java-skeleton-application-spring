@@ -32,4 +32,14 @@ describe("config base one aggregate", () => {
         expect(config.package).toEqual("pe.lacafetalab.pao.communication.user");
     });
 
+    test("value object", () => {
+        expect(config.valueObjectProperties(["id", "name", "lastname", "description", "birthdate"])).toEqual([
+            {"className": 'UserId', "propertie": 'id'},
+            {"className": 'UserName', "propertie": 'name'},
+            {"className": 'UserLastname', "propertie": 'lastname'},
+            {"className": 'UserDescription', "propertie": 'description'},
+            {"className": 'UserBirthdate', "propertie": 'birthdate'}
+        ]);
+    });
+
 });

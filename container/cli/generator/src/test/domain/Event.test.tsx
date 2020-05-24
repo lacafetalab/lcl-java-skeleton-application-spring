@@ -37,6 +37,7 @@ describe("Event one aggregate", () => {
             "strStringProperties": 'String name, String lastname, String description, String birthdate',
             "strPropertiesEquals": 'Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(description, that.description) && Objects.equals(birthdate, that.birthdate)',
             "strPropertiesMap": '(String) body.get("name"), (String) body.get("lastname"), (String) body.get("description"), (String) body.get("birthdate")'
+
         });
     });
 });
