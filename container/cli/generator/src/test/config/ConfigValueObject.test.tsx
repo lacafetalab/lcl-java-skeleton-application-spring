@@ -12,6 +12,7 @@ describe("config value obeject one aggregate", () => {
     test("type id inline", () => {
         expect(config.propertieType('id')).toEqual({
             type: "id",
+            primitive: "String",
             required: true,
             default: null
         });
@@ -19,6 +20,7 @@ describe("config value obeject one aggregate", () => {
     test("type string inline", () => {
         expect(config.propertieType('name')).toEqual({
             type: "string",
+            primitive: "String",
             required: true,
             default: null
         });
@@ -26,6 +28,7 @@ describe("config value obeject one aggregate", () => {
     test("type text inline", () => {
         expect(config.propertieType('lastname')).toEqual({
             type: "text",
+            primitive: "String",
             required: true,
             default: null
         });
@@ -33,6 +36,7 @@ describe("config value obeject one aggregate", () => {
     test("types text object", () => {
         expect(config.propertieType("description")).toEqual({
             type: "text",
+            primitive: "String",
             required: false,
             default: null
         });
@@ -40,6 +44,7 @@ describe("config value obeject one aggregate", () => {
     test("type datetime inline", () => {
         expect(config.propertieType('birthdate')).toEqual({
             type: "datetime",
+            primitive: "Date",
             required: true,
             default: null
         });

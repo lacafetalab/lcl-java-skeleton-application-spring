@@ -8,7 +8,7 @@ module:
     package: domain
     properties:
       id: id
-      name: text
+      name: string
       lastname: text
       description:
         type: text

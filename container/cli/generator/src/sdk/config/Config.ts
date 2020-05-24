@@ -8,6 +8,12 @@ interface Event {
     className: string
 }
 
+interface RepositoryDao {
+    pk: string,
+    table: string,
+    columnName: any
+}
+
 export class Config {
 
     constructor(protected _data: any) {
@@ -30,6 +36,16 @@ export class Config {
             });
         }
         return data
+    }
+
+    get repository(): RepositoryDao {
+        const table: string = (this._data.repository.table) ? this._data.repository.table : s.underscored(this.entity);
+        const columnName: any = (this._data.repository.columnName) ? this._data.repository.columnName : {};
+        return {
+            pk: this._data.repository.pk,
+            table,
+            columnName
+        }
     }
 
     get entity(): string {

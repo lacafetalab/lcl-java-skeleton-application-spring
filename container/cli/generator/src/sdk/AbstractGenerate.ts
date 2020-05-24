@@ -75,6 +75,9 @@ export abstract class AbstractGenerate {
             if (t.toObject().dataTemplate.voProperties){
                 console.log("voProperties",t.toObject().dataTemplate.voProperties);
             }
+            if (t.toObject().dataTemplate.tableProperties){
+                console.log("tableProperties",t.toObject().dataTemplate.tableProperties);
+            }
         });
     }
 }
