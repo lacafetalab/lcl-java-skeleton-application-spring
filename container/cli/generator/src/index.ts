@@ -1,9 +1,9 @@
 import {generateFile, logTemplate, readYaml} from "./Util";
-import {ValueObject} from "@sdk/domain/ValueObject";
-import {ValueObjectMother} from "@sdk/domain/ValueObjectMother";
-import {Event} from "@sdk/domain/Event";
-import {Aggregate} from "@sdk/domain/Aggregate";
-import {Dao} from "@sdk/infrastructure/persistence/Dao";
+import {ValueObject} from "@sdk/main/domain/ValueObject";
+import {ValueObjectMother} from "@sdk/test/domain/ValueObjectMother";
+import {Event} from "@sdk/main/domain/Event";
+import {Aggregate} from "@sdk/main/domain/Aggregate";
+import {Dao} from "@sdk/main/infrastructure/persistence/Dao";
 
 
 const _data = readYaml("/project/src/config.yml");

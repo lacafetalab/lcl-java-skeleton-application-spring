@@ -1,7 +1,7 @@
 import "jest";
 import {Template} from "@sdk/AbstractGenerate";
-import {complete} from "../../config/data/data";
-import {Dao} from "@sdk/infrastructure/persistence/Dao";
+import {Dao} from "@sdk/main/infrastructure/persistence/Dao";
+import {complete} from "../../../config/data/data";
 
 let dao: Dao;
 describe("config value obeject one dao", () => {

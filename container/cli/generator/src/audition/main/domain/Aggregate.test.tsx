@@ -1,7 +1,7 @@
 import "jest";
-import {Aggregate} from "@sdk/domain/Aggregate";
-import {complete} from "../config/data/data";
+import {Aggregate} from "@sdk/main/domain/Aggregate";
 import {Template} from "@sdk/AbstractGenerate";
+import {complete} from "../../config/data/data";
 
 let aggregate: Aggregate;
 describe("config value obeject one aggregate", () => {

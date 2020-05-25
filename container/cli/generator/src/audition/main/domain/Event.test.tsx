@@ -1,6 +1,6 @@
 import "jest";
-import {Event} from "@sdk/domain/Event";
-import {complete} from "../config/data/data";
+import {Event} from "@sdk/main/domain/Event";
+import {complete} from "../../config/data/data";
 import {Template} from "@sdk/AbstractGenerate";
 
 let event: Event;

@@ -1,7 +1,7 @@
 import "jest";
-import {ValueObjectMother} from "@sdk/domain/ValueObjectMother";
-import {complete} from "../config/data/data";
+import {ValueObjectMother} from "@sdk/test/domain/ValueObjectMother";
 import {Template} from "@sdk/AbstractGenerate";
+import {complete} from "../../config/data/data";
 
 let valueObjectMother: ValueObjectMother;
 describe("config value obeject one aggregate", () => {

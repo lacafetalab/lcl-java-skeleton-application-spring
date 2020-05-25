@@ -1,6 +1,6 @@
 import "jest";
-import {ValueObject} from "@sdk/domain/ValueObject";
-import {complete} from "../config/data/data";
+import {ValueObject} from "@sdk/main/domain/ValueObject";
+import {complete} from "../../config/data/data";
 import {Template} from "@sdk/AbstractGenerate";
 
 let valueObject: ValueObject;
