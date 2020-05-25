@@ -1,6 +1,0 @@
-package <%= package %>;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface <%= entity %>SpringCrudRepository extends JpaRepository<<%= entity %>Dao, String> {
-}

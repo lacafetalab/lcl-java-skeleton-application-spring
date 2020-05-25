@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository {
-    void save(User entity);
+    void save(User user);
 
-    void saveAll(List<User> entities);
+    void saveAll(List<User> listUser);
 
     Optional<User> findById(UserId id);
 

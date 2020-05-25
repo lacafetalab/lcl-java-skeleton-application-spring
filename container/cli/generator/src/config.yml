@@ -25,13 +25,13 @@ events:
   created: comunication.user.created
 services:
   create:
-    type: command
+    type: commandHandler
     template: create
   update:
-    type: command
+    type: commandHandler
     template: update
   delete:
-    type: command
+    type: commandHandler
     template: delete
     params: [id]
   findById:
@@ -50,6 +50,6 @@ repository:
     birthdate: birth_date
 http:
   create:
-    cqrs: command
+    cqrs: commandHandler
     method: post
     url: /user

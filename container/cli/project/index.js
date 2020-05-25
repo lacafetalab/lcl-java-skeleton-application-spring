@@ -23,10 +23,10 @@ let file_name = "/home/jguillermo/project/lcl-java-skeleton-spring/application/c
 //aggregate.show_configuration(file_name);
 
 //dao.generate_by_file(file_name);
-dao.show_configuration(file_name);
+//dao.show_configuration(file_name);
 
 //repository.generate_by_file(file_name);
-//repository.show_configuration(file_name);
+repository.show_configuration(file_name);
 
 //command.generate_by_file(file_name);
 //command.show_configuration(file_name);

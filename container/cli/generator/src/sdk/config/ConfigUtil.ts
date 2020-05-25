@@ -13,7 +13,7 @@ export class ConfigUtil {
     }
 
     static valueObjectProperties(properties: string[], entity: string): ValueObjectPropertie[] {
-        let voProperties: ValueObjectPropertie[] = [];
+        const voProperties: ValueObjectPropertie[] = [];
         properties.forEach(propertie => {
             voProperties.push({
                 className: ConfigUtil.valueObject(propertie,entity),
