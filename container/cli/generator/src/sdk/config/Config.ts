@@ -49,7 +49,19 @@ export class Config {
     }
 
     get entity(): string {
-        return this._data.name;
+        return s.capitalize(this._data.name);
+    }
+
+    get entityClass(): string {
+        return this.entity;
+    }
+
+    get entityIdClass(): string {
+        return `${this.entity}Id`;
+    }
+
+    get entityClassPropertie(): string {
+        return s.decapitalize(this.entity);
     }
 
     get path(): string {

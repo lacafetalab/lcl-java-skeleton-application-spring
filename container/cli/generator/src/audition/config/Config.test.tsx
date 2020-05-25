@@ -16,6 +16,18 @@ describe("config base one aggregate", () => {
         expect(config.entity).toEqual("User");
     });
 
+    test("entityClassPropertie", () => {
+        expect(config.entityClassPropertie).toEqual("user");
+    });
+
+    test("entityIdClass", () => {
+        expect(config.entityIdClass).toEqual("UserId");
+    });
+
+    test("entityClass", () => {
+        expect(config.entityClass).toEqual("User");
+    });
+
     test("value object", () => {
         expect(config.valueObject("id")).toEqual("UserId");
         expect(config.valueObject("name")).toEqual("UserName");

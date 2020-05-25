@@ -3,16 +3,16 @@ package <%= package %>;
 import java.util.List;
 import java.util.Optional;
 
-public interface <%= entity %>Repository {
-    void save(<%= entity %> entity);
+public interface <%= className %> {
+    void save(<%= entityClass %> <%= entityClassPropertie %>);
 
-    void saveAll(List<<%= entity %>> entities);
+    void saveAll(List<<%= entityClass %>> list<%= entityClass %>);
 
-    Optional<<%= entity %>> findById(<%= entity %>Id id);
+    Optional<<%= entityClass %>> findById(<%= entityIdClass %> id);
 
-    List<<%= entity %>> findAll();
+    List<<%= entityClass %>> findAll();
 
-    List<<%= entity %>> findAllById(List<<%= entity %>Id> ids);
+    List<<%= entityClass %>> findAllById(List<<%= entityIdClass %>> ids);
 
-    void deleteById(<%= entity %>Id id);
+    void deleteById(<%= entityIdClass %> id);
 }

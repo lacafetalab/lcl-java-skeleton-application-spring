@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 
 @Service
 public final class <%= class_name %> implements <%= entity_repository %> {
-    private final <%= entity %>SpringCrudRepository crudRepository;
+    private final <%= entity %>JpaRepository crudRepository;
 
-    public <%= class_name %>(<%= entity %>SpringCrudRepository crudRepository) {
+    public <%= class_name %>(<%= entity %>JpaRepository crudRepository) {
         this.crudRepository = crudRepository;
     }
 
