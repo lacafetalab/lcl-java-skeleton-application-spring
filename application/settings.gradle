@@ -1,4 +1,4 @@
-rootProject.name = 'pao-communication'
+rootProject.name = 'pao-java-skelton-spring'
 
 include ':applications'
 include ':src:communication'

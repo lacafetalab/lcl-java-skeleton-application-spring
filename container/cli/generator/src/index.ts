@@ -3,7 +3,7 @@ import {ValueObject} from "@sdk/domain/ValueObject";
 import {ValueObjectMother} from "@sdk/domain/ValueObjectMother";
 import {Event} from "@sdk/domain/Event";
 import {Aggregate} from "@sdk/domain/Aggregate";
-import {Dao} from "@sdk/infrastructure/Dao";
+import {Dao} from "@sdk/infrastructure/persistence/Dao";
 
 
 const _data = readYaml("/project/src/config.yml");

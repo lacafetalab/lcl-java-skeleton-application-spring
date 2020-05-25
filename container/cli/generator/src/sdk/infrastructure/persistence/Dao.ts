@@ -21,11 +21,11 @@ export class Dao extends AbstractGenerate {
     }
 
     get folder(): string {
-        return `${this.config.mainPath}/infrastructure/repository`;
+        return `${this.config.mainPath}/infrastructure/persistence`;
     }
 
     get package(): string {
-        return `${this.config.package}.infrastructure.repository`;
+        return `${this.config.package}.infrastructure.persistence`;
     }
 
     get packageDomain(): string {
@@ -36,7 +36,7 @@ export class Dao extends AbstractGenerate {
         let template: Template[] = [];
         const className = `${this.config.entity}Dao`;
         const file = `${this.folder}/${className}.java`;
-        const fileTemplate = `/project/templates/infrastructure/dao`;
+        const fileTemplate = `/project/templates/infrastructure/persistence/dao`;
         const voProperties = this.config.valueObjectProperties(this.config.properties)
         const data = {
             className,
