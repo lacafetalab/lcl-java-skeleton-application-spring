@@ -27,7 +27,7 @@ describe("Event one aggregate", () => {
     test("event template id", () => {
         expect(templates[0].folder).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain");
         expect(templates[0].file).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserCreatedDomainEvent.java");
-        expect(templates[0].template).toEqual("/project/templates/domain/event");
+        expect(templates[0].template).toEqual("/project/templates/main/domain/event");
         expect(templates[0].dataTemplate).toEqual({
             "className": "UserCreatedDomainEvent",
             "package": "pe.lacafetalab.pao.communication.user.domain",
@@ -46,7 +46,7 @@ describe("Event one aggregate", () => {
 {
   folder: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/UserCreatedDomainEvent.java',
-  template: '/project/templates/domain/event',
+  template: '/project/templates/main/domain/event',
   dataTemplate: {
     className: 'UserCreatedDomainEvent',
     package: 'pe.lacafetalab.pao.communication.user.domain',

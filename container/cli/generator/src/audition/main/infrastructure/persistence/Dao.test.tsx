@@ -30,7 +30,7 @@ describe("config value obeject one dao", () => {
     test("dao template id", () => {
         expect(templates[0].folder).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/infrastructure/persistence");
         expect(templates[0].file).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/infrastructure/persistence/UserDao.java");
-        expect(templates[0].template).toEqual("/project/templates/infrastructure/persistence/dao");
+        expect(templates[0].template).toEqual("/project/templates/main/infrastructure/persistence/dao");
         expect(templates[0].dataTemplate).toEqual({
             "className": "UserDao",
             "tableName": "users",

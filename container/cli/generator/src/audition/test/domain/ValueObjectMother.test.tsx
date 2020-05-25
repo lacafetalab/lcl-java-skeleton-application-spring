@@ -27,7 +27,7 @@ describe("config value obeject one aggregate", () => {
     test("valueObjectMother template id", () => {
         expect(templates[0].folder).toEqual("/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain");
         expect(templates[0].file).toEqual("/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserIdMother.java");
-        expect(templates[0].template).toEqual("/project/templates/domain/vo_mother/id");
+        expect(templates[0].template).toEqual("/project/templates/test/domain/vo_mother/id");
         expect(templates[0].dataTemplate).toEqual({
             "className": "UserIdMother",
             "classEntity": "UserId",
@@ -38,7 +38,7 @@ describe("config value obeject one aggregate", () => {
     test("valueObjectMother template name", () => {
         expect(templates[1].folder).toEqual("/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain");
         expect(templates[1].file).toEqual("/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserNameMother.java");
-        expect(templates[1].template).toEqual("/project/templates/domain/vo_mother/string");
+        expect(templates[1].template).toEqual("/project/templates/test/domain/vo_mother/string");
         expect(templates[1].dataTemplate).toEqual({
             "className": "UserNameMother",
             "classEntity": "UserName",
@@ -51,7 +51,7 @@ describe("config value obeject one aggregate", () => {
 {
   folder: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserIdMother.java',
-  template: '/project/templates/domain/vo_mother/id',
+  template: '/project/templates/test/domain/vo_mother/id',
   dataTemplate: {
     className: 'UserIdMother',
     package: 'pe.lacafetalab.pao.communication.user.domain',
@@ -61,7 +61,7 @@ describe("config value obeject one aggregate", () => {
 {
   folder: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserNameMother.java',
-  template: '/project/templates/domain/vo_mother/string',
+  template: '/project/templates/test/domain/vo_mother/string',
   dataTemplate: {
     className: 'UserNameMother',
     package: 'pe.lacafetalab.pao.communication.user.domain',
@@ -71,7 +71,7 @@ describe("config value obeject one aggregate", () => {
 {
   folder: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserLastnameMother.java',
-  template: '/project/templates/domain/vo_mother/text',
+  template: '/project/templates/test/domain/vo_mother/text',
   dataTemplate: {
     className: 'UserLastnameMother',
     package: 'pe.lacafetalab.pao.communication.user.domain',
@@ -81,7 +81,7 @@ describe("config value obeject one aggregate", () => {
 {
   folder: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserDescriptionMother.java',
-  template: '/project/templates/domain/vo_mother/text',
+  template: '/project/templates/test/domain/vo_mother/text',
   dataTemplate: {
     className: 'UserDescriptionMother',
     package: 'pe.lacafetalab.pao.communication.user.domain',
@@ -91,7 +91,7 @@ describe("config value obeject one aggregate", () => {
 {
   folder: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain',
   file: '/application/src/communication/test/pe/lacafetalab/pao/communication/user/domain/UserBirthdateMother.java',
-  template: '/project/templates/domain/vo_mother/datetime',
+  template: '/project/templates/test/domain/vo_mother/datetime',
   dataTemplate: {
     className: 'UserBirthdateMother',
     package: 'pe.lacafetalab.pao.communication.user.domain',

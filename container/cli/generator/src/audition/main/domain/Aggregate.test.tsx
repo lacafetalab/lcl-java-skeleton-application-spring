@@ -30,7 +30,7 @@ describe("config value obeject one aggregate", () => {
     test("aggregate template id", () => {
         expect(templates[0].folder).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain");
         expect(templates[0].file).toEqual("/application/src/communication/main/pe/lacafetalab/pao/communication/user/domain/User.java");
-        expect(templates[0].template).toEqual("/project/templates/domain/aggregate");
+        expect(templates[0].template).toEqual("/project/templates/main/domain/aggregate");
         expect(templates[0].dataTemplate).toEqual({
             "className": "User",
             "voProperties": [
