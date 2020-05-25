@@ -18,7 +18,7 @@ export class Aggregate extends AbstractGenerate {
     }
 
     get template(): Template[] {
-        let template: Template[] = [];
+        const template: Template[] = [];
         const className = this.config.entity;
         const file = `${this.folder}/${className}.java`;
         const fileTemplate = `/project/templates/domain/aggregate`;

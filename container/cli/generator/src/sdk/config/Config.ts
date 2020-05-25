@@ -21,7 +21,7 @@ export class Config {
 
     get properties(): string[] {
         const data: string[] = [];
-        for (const propertie in this._data.properties.aggregate) {
+        for (const propertie of Object.keys(this._data.properties.aggregate)) {
             data.push(propertie);
         }
         return data
@@ -29,7 +29,7 @@ export class Config {
 
     get events(): Event[] {
         const data: Event[] = [];
-        for (const eventName in this._data.events) {
+        for (const eventName of Object.keys(this._data.events)) {
             data.push({
                 className: s.capitalize(eventName),
                 name: this._data.events[eventName]

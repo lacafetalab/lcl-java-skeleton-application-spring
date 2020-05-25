@@ -28,7 +28,7 @@ export class Event extends AbstractGenerate {
     }
 
     private get properties(): string[] {
-        let properties: string[] = []
+        const properties: string[] = []
         this.config.properties.forEach(propertie => {
             if (propertie !== 'id') {
                 properties.push(propertie);
@@ -38,7 +38,7 @@ export class Event extends AbstractGenerate {
     }
 
     get template(): Template[] {
-        let template: Template[] = [];
+        const template: Template[] = [];
         this.config.events.forEach(event => {
             const className = `${this.config.entity}${event.className}DomainEvent`;
             const file = `${this.folder}/${className}.java`;

@@ -33,7 +33,7 @@ export class Dao extends AbstractGenerate {
     }
 
     get template(): Template[] {
-        let template: Template[] = [];
+        const template: Template[] = [];
         const className = `${this.config.entity}Dao`;
         const file = `${this.folder}/${className}.java`;
         const fileTemplate = `/project/templates/infrastructure/persistence/dao`;
@@ -60,7 +60,7 @@ export class Dao extends AbstractGenerate {
     }
 
     private tableProperties(properties: string[]): TablePropertie[] {
-        let tablePropertie: TablePropertie[] = [];
+        const tablePropertie: TablePropertie[] = [];
         properties.forEach(propertie => {
             const propertieType = this.config.propertieType(propertie);
             const columnName = (this.config.repository.columnName[propertie]) ? this.config.repository.columnName[propertie] : s.underscored(propertie);

@@ -18,7 +18,7 @@ export class ValueObjectMother extends AbstractGenerate {
     }
 
     get template(): Template[] {
-        let template: Template[] = [];
+        const template: Template[] = [];
         this.config.properties.forEach(propertie => {
             const type = this.config.propertieType(propertie);
 
