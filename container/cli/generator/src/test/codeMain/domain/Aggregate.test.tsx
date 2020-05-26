@@ -1,5 +1,5 @@
 import "jest";
-import {Aggregate} from "@sdk/main/domain/Aggregate";
+import {Aggregate} from "@sdk/codeMain/domain/Aggregate";
 import {Template} from "@sdk/AbstractGenerate";
 import {complete} from "../../config/data/data";
 

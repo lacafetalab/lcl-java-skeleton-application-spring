@@ -1,5 +1,5 @@
 import "jest";
-import {Repository} from "@sdk/main/domain/Repository";
+import {Repository} from "@sdk/codeMain/domain/Repository";
 import {Template} from "@sdk/AbstractGenerate";
 import {complete} from "../../config/data/data";
 

@@ -1,5 +1,5 @@
 import "jest";
-import {Event} from "@sdk/main/domain/Event";
+import {Event} from "@sdk/codeMain/domain/Event";
 import {complete} from "../../config/data/data";
 import {Template} from "@sdk/AbstractGenerate";
 

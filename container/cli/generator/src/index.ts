@@ -1,12 +1,12 @@
 import {generateFile, logTemplate, readYaml} from "./Util";
-import {ValueObject} from "@sdk/main/domain/ValueObject";
-import {ValueObjectMother} from "@sdk/test/domain/ValueObjectMother";
-import {Event} from "@sdk/main/domain/Event";
-import {Aggregate} from "@sdk/main/domain/Aggregate";
-import {Repository} from "@sdk/main/domain/Repository";
-import {Dao} from "@sdk/main/infrastructure/persistence/Dao";
-import {JpaRepository} from "@sdk/main/infrastructure/persistence/JpaRepository";
-import {SqlRepository} from "@sdk/main/infrastructure/persistence/SqlRepository";
+import {ValueObject} from "@sdk/codeMain/domain/ValueObject";
+import {ValueObjectMother} from "@sdk/codeTest/domain/ValueObjectMother";
+import {Event} from "@sdk/codeMain/domain/Event";
+import {Aggregate} from "@sdk/codeMain/domain/Aggregate";
+import {Repository} from "@sdk/codeMain/domain/Repository";
+import {Dao} from "@sdk/codeMain/infrastructure/persistence/Dao";
+import {JpaRepository} from "@sdk/codeMain/infrastructure/persistence/JpaRepository";
+import {SqlRepository} from "@sdk/codeMain/infrastructure/persistence/SqlRepository";
 
 
 const _data = readYaml("/project/src/config.yml");
