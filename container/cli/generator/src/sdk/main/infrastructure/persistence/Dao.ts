@@ -29,7 +29,7 @@ export class Dao extends AbstractGenerate {
     }
 
     get packageDomain(): string {
-        return `${this.config.package}.domain`;
+        return this.config.packageDomain;
     }
 
     get template(): Template[] {

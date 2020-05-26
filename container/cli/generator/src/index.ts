@@ -6,6 +6,7 @@ import {Aggregate} from "@sdk/main/domain/Aggregate";
 import {Repository} from "@sdk/main/domain/Repository";
 import {Dao} from "@sdk/main/infrastructure/persistence/Dao";
 import {JpaRepository} from "@sdk/main/infrastructure/persistence/JpaRepository";
+import {SqlRepository} from "@sdk/main/infrastructure/persistence/SqlRepository";
 
 
 const _data = readYaml("/project/src/config.yml");
@@ -17,6 +18,7 @@ const aggregate = new Aggregate(_data);
 const repository = new Repository(_data);
 const dao = new Dao(_data);
 const jpaRepository = new JpaRepository(_data);
+const sqlRepository = new SqlRepository(_data);
 
 
 logTemplate(valueObject.template);
@@ -39,3 +41,6 @@ generateFile(dao.template);
 
 logTemplate(jpaRepository.template);
 generateFile(jpaRepository.template);
+
+logTemplate(sqlRepository.template);
+generateFile(sqlRepository.template);
