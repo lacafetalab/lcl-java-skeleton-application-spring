@@ -1,21 +1,24 @@
 package <%= package %>;
 
-import pe.lacafetalab.pao.shared.domain.bus.command.Command;
+import org.springframework.stereotype.Service;
+import <%= package_domain %>.*;
+import pe.lacafetalab.pao.shared.domain.bus.command.CommandHandler;
 
-public final class <%= class_name %> implements Command {
-    <%_ params.forEach(function(param){ _%>
-    private final String <%= param.propertie %>;
-    <%_ }); _%>
+@Service
+public final class <%= class_name %> implements CommandHandler<<%= class_command %>> {
 
-    public <%= class_name %>(<%= str_vo_property %>) {
+    private final <%= service_class %> service;
+
+    public <%= class_name %>(<%= service_class %> service) {
+        this.service = service;
+    }
+
+    @Override
+    public void handle(<%= class_command %> command) {
         <%_ params.forEach(function(param){ _%>
-        this.<%= param.propertie %> = <%= param.propertie %>;
+        <%= param.vo_name %> <%= param.propertie %> = new <%= param.vo_name %>(command.<%= param.propertie %>());
         <%_ }); _%>
-    }
-    <%_ params.forEach(function(param){ _%>
 
-    public String <%= param.propertie %>() {
-        return <%= param.propertie %>;
+        service.execute(<%= str_vo_property %>);
     }
-    <%_ }); _%>
 }

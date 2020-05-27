@@ -1,0 +1,21 @@
+package <%= package %>;
+
+import pe.lacafetalab.pao.shared.domain.bus.command.Command;
+
+public final class <%= class_name %> implements Command {
+    <%_ params.forEach(function(param){ _%>
+    private final String <%= param.propertie %>;
+    <%_ }); _%>
+
+    public <%= class_name %>(<%= str_vo_property %>) {
+        <%_ params.forEach(function(param){ _%>
+        this.<%= param.propertie %> = <%= param.propertie %>;
+        <%_ }); _%>
+    }
+    <%_ params.forEach(function(param){ _%>
+
+    public String <%= param.propertie %>() {
+        return <%= param.propertie %>;
+    }
+    <%_ }); _%>
+}
