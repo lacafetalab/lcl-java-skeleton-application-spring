@@ -19,7 +19,7 @@ final public class <%= className %> implements Response {
     }
 
     public static <%= className %> fromAggregate(<%= entityClass %> <%= entityClassPropertie %>) {
-        return new <%= className %>(<%= strPropertiesToString %>);
+        return new <%= className %>(<%= strPropertiesEntityToString %>);
     }
 
     @Override

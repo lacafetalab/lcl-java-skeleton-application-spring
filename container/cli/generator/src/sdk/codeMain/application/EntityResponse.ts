@@ -1,6 +1,8 @@
 import {Config} from "@sdk/config/Config";
 import {AbstractGenerate, Template} from "@sdk/AbstractGenerate";
 
+const s = require("underscore.string");
+
 export class EntityResponse extends AbstractGenerate {
     private config: Config;
 
@@ -32,6 +34,14 @@ export class EntityResponse extends AbstractGenerate {
         return template;
     }
 
+    private strPropertiesEntityToString(properties: string[], entityName: string) {
+        let str = "";
+        properties.forEach(propertie => {
+            str = str + `, ${entityName}.${propertie}().toString()`;
+        });
+        return s.trim(s.trim(str, ','));
+    }
+
     private getTemplateEntity(): Template {
         const className = this.entityResponseClass;
         const file = `${this.folder}/${className}.java`;
@@ -41,8 +51,8 @@ export class EntityResponse extends AbstractGenerate {
             className,
             package: this.package,
             strProperties: this.strProperties(this.config.properties),
-            strPropertiesToString: this.strPropertiesToString(this.config.properties),
-            strStringProperties: this.strProperties(this.config.properties,"String"),
+            strPropertiesEntityToString: this.strPropertiesEntityToString(this.config.properties, this.config.entityClassPropertie),
+            strStringProperties: this.strProperties(this.config.properties, "String"),
             strPropertiesEquals: this.strPropertiesEquals(this.config.properties),
             packageDomain: this.config.packageDomain,
             entityClass: this.config.entityClass,

@@ -46,7 +46,7 @@ describe("config value obeject one entityResponse", () => {
             "strStringProperties": 'String id, String name, String lastname, String description, String birthdate',
             "strProperties": 'id, name, lastname, description, birthdate',
             "strPropertiesEquals": 'Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(description, that.description) && Objects.equals(birthdate, that.birthdate)',
-            "strPropertiesToString": 'id.toString(), name.toString(), lastname.toString(), description.toString(), birthdate.toString()',
+            "strPropertiesEntityToString": 'user.id().toString(), user.name().toString(), user.lastname().toString(), user.description().toString(), user.birthdate().toString()',
             "packageDomain": "pe.lacafetalab.pao.communication.user.domain",
             "entityClass": "User",
             "entityClassPropertie": "user",
