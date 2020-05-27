@@ -8,6 +8,7 @@ import {Dao} from "@sdk/codeMain/infrastructure/persistence/Dao";
 import {JpaRepository} from "@sdk/codeMain/infrastructure/persistence/JpaRepository";
 import {SqlRepository} from "@sdk/codeMain/infrastructure/persistence/SqlRepository";
 import {CommnadService} from "@sdk/codeMain/application/CommandService";
+import {QueryService} from "@sdk/codeMain/application/QueryService";
 
 
 const _data = readYaml("/project/src/config.yml");
@@ -59,3 +60,13 @@ generateFile(commandUpdate.template);
 
 logTemplate(commandDelete.template);
 generateFile(commandDelete.template);
+
+
+const queryFindById = new QueryService(_data, "findById", "entity", ["id"], "findById");
+const querySearchCriteria = new QueryService(_data, "searchCriteria", "list", null, "searchCriteria");
+
+logTemplate(queryFindById.template);
+generateFile(queryFindById.template);
+
+logTemplate(querySearchCriteria.template);
+generateFile(querySearchCriteria.template);

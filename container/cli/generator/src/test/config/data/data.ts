@@ -34,36 +34,7 @@ export function complete() {
         "events": {
             "created": "comunication.user.created"
         },
-        "services": {
-            "create": {
-                "type": "command",
-                "template": "create"
-            },
-            "update": {
-                "type": "command",
-                "template": "update"
-            },
-            "delete": {
-                "type": "command",
-                "template": "delete",
-                "params": [
-                    "id"
-                ]
-            },
-            "findById": {
-                "type": "query",
-                "template": "findById",
-                "params": [
-                    "id"
-                ],
-                "return": "entity"
-            },
-            "searchCriteria": {
-                "type": "query",
-                "template": "searchCriteria",
-                "return": "list"
-            }
-        },
+        "services": {},
         "repository": {
             "pk": "id",
             "table": "users",
