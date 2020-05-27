@@ -2,14 +2,14 @@ package pe.lacafetalab.pao.communication.user.application.search_criteria;
 
 import pe.lacafetalab.pao.shared.domain.bus.query.Query;
 
-public final class UserSearchCriteriaQuery implements Query {
+public final class SearchCriteriaUserQuery implements Query {
     private final String id;
     private final String name;
     private final String lastname;
     private final String description;
     private final String birthdate;
 
-    public UserSearchCriteriaQuery(String id, String name, String lastname, String description, String birthdate) {
+    public SearchCriteriaUserQuery(String id, String name, String lastname, String description, String birthdate) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;

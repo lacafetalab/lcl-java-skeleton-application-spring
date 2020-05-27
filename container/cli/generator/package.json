@@ -4,7 +4,8 @@
   "description": "cli ddd java",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/sdk/**/*.ts*'",
     "lint-fix": "tslint -c tslint.json --fix 'src/sdk/**/*.ts*'",

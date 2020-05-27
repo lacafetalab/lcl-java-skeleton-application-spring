@@ -1,7 +1,7 @@
 import "jest";
 import {Template} from "@sdk/AbstractGenerate";
 import {complete} from "../../../config/data/data";
-import {SqlRepository} from "@sdk/main/infrastructure/persistence/SqlRepository";
+import {SqlRepository} from "@sdk/codeMain/infrastructure/persistence/SqlRepository";
 
 let sqlRepository: SqlRepository;
 describe("config sqlRepository one sqlRepository", () => {

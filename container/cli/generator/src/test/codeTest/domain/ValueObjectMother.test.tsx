@@ -1,5 +1,5 @@
 import "jest";
-import {ValueObjectMother} from "@sdk/test/domain/ValueObjectMother";
+import {ValueObjectMother} from "@sdk/codeTest/domain/ValueObjectMother";
 import {Template} from "@sdk/AbstractGenerate";
 import {complete} from "../../config/data/data";
 

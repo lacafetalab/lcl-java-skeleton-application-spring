@@ -6,15 +6,15 @@ import pe.lacafetalab.pao.communication.user.domain.*;
 import pe.lacafetalab.pao.shared.domain.bus.query.QueryHandler;
 
 @Service
-public final class UserFindByIdQueryHandler implements QueryHandler<UserFindByIdQuery, UserResponse> {
-    private final UserFindById service;
+public final class FindByIdUserQueryHandler implements QueryHandler<FindByIdUserQuery, UserResponse> {
+    private final FindByIdUser service;
 
-    public UserFindByIdQueryHandler(UserFindById service) {
+    public FindByIdUserQueryHandler(FindByIdUser service) {
         this.service = service;
     }
 
     @Override
-    public UserResponse handle(UserFindByIdQuery query) {
+    public UserResponse handle(FindByIdUserQuery query) {
         UserId id = new UserId(query.id());
 
         return this.service.execute(id);

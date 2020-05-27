@@ -1,8 +1,8 @@
 package <%= package %>;
 
-import pe.lacafetalab.pao.shared.domain.bus.query.Query;
+import pe.lacafetalab.pao.shared.domain.bus.command.Command;
 
-public final class <%= className %> implements Query {
+public final class <%= className %> implements Command {
     <%_ voProperties.forEach(function(propertie){ _%>
     private final String <%= propertie.propertie %>;
     <%_ }); _%>

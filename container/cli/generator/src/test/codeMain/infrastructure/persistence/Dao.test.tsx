@@ -1,6 +1,6 @@
 import "jest";
 import {Template} from "@sdk/AbstractGenerate";
-import {Dao} from "@sdk/main/infrastructure/persistence/Dao";
+import {Dao} from "@sdk/codeMain/infrastructure/persistence/Dao";
 import {complete} from "../../../config/data/data";
 
 let dao: Dao;

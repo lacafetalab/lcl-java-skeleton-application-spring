@@ -1,5 +1,5 @@
 import "jest";
-import {ValueObject} from "@sdk/main/domain/ValueObject";
+import {ValueObject} from "@sdk/codeMain/domain/ValueObject";
 import {complete} from "../../config/data/data";
 import {Template} from "@sdk/AbstractGenerate";
 

@@ -1,5 +1,5 @@
 import "jest";
-import {JpaRepository} from "@sdk/main/infrastructure/persistence/JpaRepository";
+import {JpaRepository} from "@sdk/codeMain/infrastructure/persistence/JpaRepository";
 import {Template} from "@sdk/AbstractGenerate";
 import {complete} from "../../../config/data/data";
 

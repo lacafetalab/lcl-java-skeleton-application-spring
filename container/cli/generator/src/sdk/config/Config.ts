@@ -76,6 +76,10 @@ export class Config {
         return `${this.package}.domain`;
     }
 
+    get packageApplication(): string {
+        return `${this.package}.application`;
+    }
+
     get mainPath(): string {
         return `${this._data.path}/main/${this._data.package}`.replace(/\./g, "/");
     }
