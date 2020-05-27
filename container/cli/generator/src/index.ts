@@ -9,6 +9,7 @@ import {JpaRepository} from "@sdk/codeMain/infrastructure/persistence/JpaReposit
 import {SqlRepository} from "@sdk/codeMain/infrastructure/persistence/SqlRepository";
 import {CommnadService} from "@sdk/codeMain/application/CommandService";
 import {QueryService} from "@sdk/codeMain/application/QueryService";
+import {EntityResponse} from "@sdk/codeMain/application/EntityResponse";
 
 
 const _data = readYaml("/project/src/config.yml");
@@ -21,6 +22,7 @@ const repository = new Repository(_data);
 const dao = new Dao(_data);
 const jpaRepository = new JpaRepository(_data);
 const sqlRepository = new SqlRepository(_data);
+const entityResponse = new EntityResponse(_data);
 
 
 logTemplate(valueObject.template);
@@ -46,6 +48,10 @@ generateFile(jpaRepository.template);
 
 logTemplate(sqlRepository.template);
 generateFile(sqlRepository.template);
+
+logTemplate(entityResponse.template);
+generateFile(entityResponse.template);
+
 
 
 const commandCreate = new CommnadService(_data, "create", null, "create");

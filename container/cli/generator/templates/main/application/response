@@ -1,37 +1,37 @@
 package <%= package %>;
 
 import lombok.Getter;
-import <%= package_domain %>.<%= entity_class%>;
+import <%= packageDomain %>.<%= entityClass %>;
 import pe.lacafetalab.pao.shared.domain.bus.query.Response;
 
 import java.util.Objects;
 
 @Getter
-final public class <%= class_name %> implements Response {
-    <%_ params.forEach(function(param){ _%>
-    private final String <%= param.propertie %>;
+final public class <%= className %> implements Response {
+    <%_ voProperties.forEach(function(propertie){ _%>
+    private final String <%= propertie.propertie %>;
     <%_ }); _%>
 
-    public <%= class_name %>(<%= str_vo_property_string %>) {
-        <%_ params.forEach(function(param){ _%>
-        this.<%= param.propertie %> = <%= param.propertie %>;
+    public <%= className %>(<%= strStringProperties %>) {
+        <%_ voProperties.forEach(function(propertie){ _%>
+        this.<%= propertie.propertie %> = <%= propertie.propertie %>;
         <%_ }); _%>
     }
 
-    public static <%= class_name %> fromAggregate(<%= entity_class %> <%= entity_name %>) {
-        return new <%= class_name %>(<%= str_property_to_string %>);
+    public static <%= className %> fromAggregate(<%= entityClass %> <%= entityClassPropertie %>) {
+        return new <%= className %>(<%= strPropertiesToString %>);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof <%= class_name %>)) return false;
-        <%= class_name %> that = (<%= class_name %>) o;
-        return <%- str_vo_equals %>;
+        if (!(o instanceof <%= className %>)) return false;
+        <%= className %> that = (<%= className %>) o;
+        return <%- strPropertiesEquals %>;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(<%= str_property %>);
+        return Objects.hash(<%= strProperties %>);
     }
 }

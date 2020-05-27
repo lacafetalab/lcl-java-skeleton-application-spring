@@ -4,14 +4,14 @@ import pe.lacafetalab.pao.shared.domain.bus.query.Response;
 
 import java.util.List;
 
-public final class <%= class_name %> implements Response {
-    private final List<<%= response_class %>> <%= response_name %>;
+public final class <%= className %> implements Response {
+    private final List<<%= entityResponseClass %>> <%= entityResponseClassPropertie %>;
 
-    public <%= class_name %>(List<<%= response_class %>> <%= response_name %>) {
-        this.<%= response_name %> = <%= response_name %>;
+    public <%= className %>(List<<%= entityResponseClass %>> <%= entityResponseClassPropertie %>) {
+        this.<%= entityResponseClassPropertie %> = <%= entityResponseClassPropertie %>;
     }
 
-    public List<<%= response_class %>> <%= response_name %>() {
-        return <%= response_name %>;
+    public List<<%= entityResponseClass %>> <%= entityResponseClassPropertie %>() {
+        return <%= entityResponseClassPropertie %>;
     }
 }
