@@ -16,7 +16,7 @@ public final class <%= className %> implements CommandHandler<<%= classCommandNa
     @Override
     public void handle(<%= classCommandName %> command) {
         <%_ voProperties.forEach(function(propertie){ _%>
-        <%= propertie.className %> <%= propertie.propertie %> = new <%= param.className %>(command.<%= param.propertie %>());
+        <%= propertie.className %> <%= propertie.propertie %> = new <%= propertie.className %>(command.<%= propertie.propertie %>());
         <%_ }); _%>
 
         service.execute(<%= strProperties %>);

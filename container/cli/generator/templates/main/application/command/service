@@ -17,7 +17,7 @@ public final class <%= className %> {
 
     public void execute(<%= strVoProperties %>) {
         <%_ if (serviceTemplate == "create") { _%>
-        <%= entityClass %> <%= entityClassPropertie %> = <%= entityClass %>.create(<%= strVoProperties %>);
+        <%= entityClass %> <%= entityClassPropertie %> = <%= entityClass %>.create(<%= strProperties %>);
         repository.save(<%= entityClassPropertie %>);
         <%_ } _%>
         <%_ if (serviceTemplate == "update") { _%>
