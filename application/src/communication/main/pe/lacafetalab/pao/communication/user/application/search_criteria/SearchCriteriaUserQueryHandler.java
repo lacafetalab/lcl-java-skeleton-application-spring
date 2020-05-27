@@ -6,15 +6,15 @@ import pe.lacafetalab.pao.communication.user.domain.*;
 import pe.lacafetalab.pao.shared.domain.bus.query.QueryHandler;
 
 @Service
-public final class UserSearchCriteriaQueryHandler implements QueryHandler<UserSearchCriteriaQuery, ListUserResponse> {
-    private final UserSearchCriteria service;
+public final class SearchCriteriaUserQueryHandler implements QueryHandler<SearchCriteriaUserQuery, ListUserResponse> {
+    private final SearchCriteriaUser service;
 
-    public UserSearchCriteriaQueryHandler(UserSearchCriteria service) {
+    public SearchCriteriaUserQueryHandler(SearchCriteriaUser service) {
         this.service = service;
     }
 
     @Override
-    public ListUserResponse handle(UserSearchCriteriaQuery query) {
+    public ListUserResponse handle(SearchCriteriaUserQuery query) {
         UserId id = new UserId(query.id());
         UserName name = new UserName(query.name());
         UserLastname lastname = new UserLastname(query.lastname());

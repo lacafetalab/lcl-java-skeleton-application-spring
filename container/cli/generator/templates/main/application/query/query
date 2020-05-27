@@ -7,7 +7,7 @@ public final class <%= className %> implements Query {
     private final String <%= propertie.propertie %>;
     <%_ }); _%>
 
-    public <%= className %>(<%= str_vo_property %>) {
+    public <%= className %>(<%= strStringProperties %>) {
         <%_ voProperties.forEach(function(propertie){ _%>
         this.<%= propertie.propertie %> = <%= propertie.propertie %>;
         <%_ }); _%>

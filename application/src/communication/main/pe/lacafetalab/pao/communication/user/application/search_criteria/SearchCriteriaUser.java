@@ -1,4 +1,4 @@
-package pe.lacafetalab.pao.communication.user.application.find_by_id;
+package pe.lacafetalab.pao.communication.user.application.search_criteria;
 
 import org.springframework.stereotype.Service;
 import pe.lacafetalab.pao.communication.user.application.ListUserResponse;
@@ -10,18 +10,18 @@ import pe.lacafetalab.pao.shared.exceptions.BadRequestException;
 import java.util.stream.Collectors;
 
 @Service
-public final class UserFindById {
+public final class SearchCriteriaUser {
     private final UserRepository repository;
     private final EventBus eventBus;
 
-    public UserFindById(UserRepository repository, EventBus eventBus) {
+    public SearchCriteriaUser(UserRepository repository, EventBus eventBus) {
         this.repository = repository;
         this.eventBus = eventBus;
     }
 
-    public UserResponse execute(UserId id) {
-        User user = repository.findById(id).orElseThrow(()-> new BadRequestException("404","User not found"));
-        eventBus.publish(user.pullDomainEvents());
-        return UserResponse.fromAggregate(user);
+    public ListUserResponse execute(UserId id, UserName name, UserLastname lastname, UserDescription description, UserBirthdate birthdate) {
+        return new ListUserResponse(
+                repository.findAll().stream().map(UserResponse::fromAggregate).collect(Collectors.toList())
+        );
     }
 }
