@@ -7,6 +7,7 @@ import {Repository} from "@sdk/codeMain/domain/Repository";
 import {Dao} from "@sdk/codeMain/infrastructure/persistence/Dao";
 import {JpaRepository} from "@sdk/codeMain/infrastructure/persistence/JpaRepository";
 import {SqlRepository} from "@sdk/codeMain/infrastructure/persistence/SqlRepository";
+import {CommnadService} from "@sdk/codeMain/application/CommandService";
 
 
 const _data = readYaml("/project/src/config.yml");
@@ -44,3 +45,17 @@ generateFile(jpaRepository.template);
 
 logTemplate(sqlRepository.template);
 generateFile(sqlRepository.template);
+
+
+const commandCreate = new CommnadService(_data, "create", null, "create");
+const commandUpdate = new CommnadService(_data, "update", null, "update");
+const commandDelete = new CommnadService(_data, "delete", ["id"], "delete");
+
+logTemplate(commandCreate.template);
+generateFile(commandCreate.template);
+
+logTemplate(commandUpdate.template);
+generateFile(commandUpdate.template);
+
+logTemplate(commandDelete.template);
+generateFile(commandDelete.template);

@@ -1,33 +1,33 @@
 package <%= package %>;
 
 import org.springframework.stereotype.Service;
-import <%= package_domain %>.*;
+import <%= packageDomain %>.*;
 import pe.lacafetalab.pao.shared.domain.bus.event.EventBus;
 import pe.lacafetalab.pao.shared.exceptions.BadRequestException;
 
 @Service
-public final class <%= class_name %> {
-    private final <%= class_repository %> repository;
+public final class <%= className %> {
+    private final <%= entityRepositoryClass %> repository;
     private final EventBus eventBus;
 
-    public <%= class_name %>(<%= class_repository %> repository, EventBus eventBus) {
+    public <%= className %>(<%= entityRepositoryClass %> repository, EventBus eventBus) {
         this.repository = repository;
         this.eventBus = eventBus;
     }
 
-    public void execute(<%= str_vo_property%>) {
-        <%_ if (service_template == "create") { _%>
-        <%= class_entity %> <%= entity_name %> = <%= class_entity %>.create(<%= str_vo_property_item %>);
-        repository.save(<%= entity_name %>);
+    public void execute(<%= strVoProperties %>) {
+        <%_ if (serviceTemplate == "create") { _%>
+        <%= entityClass %> <%= entityClassPropertie %> = <%= entityClass %>.create(<%= strVoProperties %>);
+        repository.save(<%= entityClassPropertie %>);
         <%_ } _%>
-        <%_ if (service_template == "update") { _%>
-        <%= class_entity %> <%= entity_name %> = repository.findById(id).orElseThrow(()-> new BadRequestException("404","<%= class_entity %> not found"));
-        repository.save(<%= entity_name %>);
+        <%_ if (serviceTemplate == "update") { _%>
+        <%= entityClass %> <%= entityClassPropertie %> = repository.findById(id).orElseThrow(()-> new BadRequestException("404","<%= entityClass %> not found"));
+        repository.save(<%= entityClassPropertie %>);
         <%_ } _%>
-        <%_ if (service_template == "delete") { _%>
-        <%= class_entity %> <%= entity_name %> = repository.findById(id).orElseThrow(()-> new BadRequestException("404","<%= class_entity %> not found"));
-        repository.deleteById(<%= entity_name %>.id());
+        <%_ if (serviceTemplate == "delete") { _%>
+        <%= entityClass %> <%= entityClassPropertie %> = repository.findById(id).orElseThrow(()-> new BadRequestException("404","<%= entityClass %> not found"));
+        repository.deleteById(<%= entityClassPropertie %>.id());
         <%_ } _%>
-        eventBus.publish(<%= entity_name %>.pullDomainEvents());
+        eventBus.publish(<%= entityClassPropertie %>.pullDomainEvents());
     }
 }
