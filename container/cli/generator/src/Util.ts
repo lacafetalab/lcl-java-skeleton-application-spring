@@ -4,6 +4,16 @@ const fs = require("fs");
 const YAML = require("yaml");
 const ejs = require("ejs");
 
+
+export function itemsFolder(folder: string): string[] {
+    const listFile: string[] = [];
+    // tslint:disable-next-line:only-arrow-functions
+    fs.readdirSync(folder).forEach(function (file: string) {
+        listFile.push(file);
+    });
+    return listFile;
+}
+
 export function readYaml(fileName: string) {
     const file = fs.readFileSync(fileName, "utf8");
     return YAML.parse(file);

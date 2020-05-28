@@ -12,7 +12,7 @@ import {QueryService} from "@sdk/codeMain/application/QueryService";
 import {EntityResponse} from "@sdk/codeMain/application/EntityResponse";
 
 
-const _data = readYaml("/project/src/config.yml");
+const _data = readYaml("/project/src/user.yml");
 
 const valueObject = new ValueObject(_data);
 const valueObjectMother = new ValueObjectMother(_data);
