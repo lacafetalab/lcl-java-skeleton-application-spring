@@ -1,11 +1,11 @@
 import {Config} from "@sdk/config/Config";
 import "jest";
-import {min} from "./data/data"
+import {complete} from "./data/data"
 
 let config: Config;
 describe("config base one aggregate", () => {
     beforeEach(() => {
-        config = new Config(min());
+        config = new Config(complete());
     });
 
     test("properties", () => {

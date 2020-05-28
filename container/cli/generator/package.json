@@ -9,18 +9,21 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/sdk/**/*.ts*'",
     "lint-fix": "tslint -c tslint.json --fix 'src/sdk/**/*.ts*'",
-    "exec": "ts-node -r tsconfig-paths/register ./src/index.ts"
+    "exec": "ts-node -r tsconfig-paths/register src/index.ts",
+    "cli": "ts-node -r tsconfig-paths/register src/cli.ts"
   },
   "author": "Jose Guillermo",
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.3",
+    "inquirer": "^7.1.0",
     "module-alias": "^2.2.2",
     "underscore.string": "^3.3.5",
     "yaml": "^1.10.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
+    "@types/inquirer": "^6.5.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
     "ts-node": "^8.10.1",
