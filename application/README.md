@@ -96,7 +96,7 @@ Para estos test se usan mucho los objectMother, para generar data
 ---
 
 > para correr todos estos test, primero se debe iniciar los servios externos, base de datos, ...
-Los test corren con @tracsaction esto ahce que la data que se persista, luego se borrer, para no tener la base de datos llena cuando corraso otra vez los test
+Los test corren con @tracsaction esto hace que la data que se guarde, luego se borrer, para no tener la base de datos llena cuando se corra otra vez los test
 
 ```java
 make up
