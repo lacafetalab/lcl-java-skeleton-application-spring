@@ -1,4 +1,3 @@
-
 ## Se usan 3 tipos de test
 
 1. **Aceptación :** Se testean los endpoint y domain event.
@@ -48,7 +47,7 @@ void get_the_counter_with_one_course() throws Exception {
 
 # Test de Integracíon
 
-Estos test estan diseñados para testear la persistencia de datos y la coneccion con otros servicios. Estos test aun son pesados porque que tienen que iniciar infraestructura (base de datos, redis cache, elasticksearch, etc), estan diseñados para testear la implementacion de la "Interface" de un aggregate. No se debe testear lógica de negocio en este tipo de test, solo debemos asegurar que este trabajando según el contrato de Repositorio que se creó.
+Estos test estan diseñados para testear la persistencia de datos y la conección con otros servicios. Estos test aun son pesados porque que tienen que iniciar infraestructura (base de datos, redis cache, elasticksearch, etc), estan diseñados para testear la implementacion de la "Interface" de un aggregate. No se debe testear lógica de negocio en este tipo de test, solo debemos asegurar que esté trabajando según el contrato de Repositorio que se creó.
 
 Estos test estan dentro de cada modulo /src/module_name/test
 
@@ -72,7 +71,7 @@ void save_a_announcement() {
 
 # Test Unitarios
 
-No dejemos que el nombre "unitario" nos engañe un poco, estos test  **NO**  es estan diseñados para testear una clase o una funcion. Aquí vamos a testear los **casos de uso** (servicios de dominio) de nuestra aplicacion, solo que vamos a mokear el repositorio (no vamos a inicar nungun servio externo), esto ayuda a correr muchos test en forma rápida, aqui debemos poner todo nuestro esfuerzo para cubrir logica de negocio, y son los test mas abundantes dentro del desarrollo.
+No dejemos que el nombre "unitario" nos engañe un poco, estos test  **NO**  es estan diseñados para testear una clase o una funcion. Aquí vamos a testear los **casos de uso** (servicios de applicación) de nuestra aplicacion, solo que vamos a mokear el repositorio (no vamos a inicar ningun servicio externo), esto ayuda a correr muchos test en forma rápida, aqui debemos poner todo nuestro esfuerzo para cubrir logica de negocio, y son los test más abundantes dentro del desarrollo.
 
 En estos test cubrimos comman, query, Handler, y servicio de applicaciion
 
@@ -96,8 +95,10 @@ Para estos test se usan mucho los objectMother, para generar data
 
 ---
 
-> para correr todos estos test, hay un solo comando
+> para correr todos estos test, primero se debe iniciar los servios externos, base de datos, ...
+Los test corren con @tracsaction esto ahce que la data que se persista, luego se borrer, para no tener la base de datos llena cuando corraso otra vez los test
 
 ```java
-./gradlew test --warning-mode all
+make up
+make test
 ```
