@@ -1,4 +1,4 @@
-package pe.lacafetalab.app.app;
+package pe.lacafetalab.pao.applications;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

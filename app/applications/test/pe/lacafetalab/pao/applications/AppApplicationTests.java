@@ -1,4 +1,4 @@
-package pe.lacafetalab.app.app;
+package pe.lacafetalab.pao.applications;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
