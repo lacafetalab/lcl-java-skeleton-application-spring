@@ -21,21 +21,6 @@ subprojects {
 		}
 	}
 
-	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		//implementation 'org.flywaydb:flyway-core'
-		compileOnly 'org.projectlombok:lombok'
-		//developmentOnly 'org.springframework.boot:spring-boot-devtools'
-		runtimeOnly 'org.postgresql:postgresql'
-		annotationProcessor 'org.projectlombok:lombok'
-		testImplementation('org.springframework.boot:spring-boot-starter-test') {
-			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-		}
-	}
-
-
-
 	sourceSets {
 		main {
 			java { srcDirs = ['main'] }
@@ -47,6 +32,25 @@ subprojects {
 			resources { srcDirs = ['test/resources'] }
 		}
 	}
+
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.1.REALEASE'
+		implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.REALEASE'
+		compileOnly 'org.projectlombok:lombok:1.18.12'
+		runtimeOnly 'org.postgresql:postgresql:42.2.14'
+		annotationProcessor 'org.projectlombok:lombok:1.18.12'
+		testImplementation('org.springframework.boot:spring-boot-starter-test:2.3.1.REALEASE') {
+			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		}
+		if (project.name != "shared") {
+			implementation project(":shared")
+			//testImplementation project(":shared").sourceSets.test.output
+		}
+	}
+
+
+
 
 	task view_paths {
 		doLast { task ->

@@ -2,3 +2,7 @@ rootProject.name = 'java-ddd-skeleton'
 
 include ':applications'
 project(':applications').projectDir = new File('applications')
+
+
+include ':shared'
+project(':shared').projectDir = new File('src/shared')
