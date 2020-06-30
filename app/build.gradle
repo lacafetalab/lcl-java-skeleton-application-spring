@@ -11,6 +11,10 @@ subprojects {
 	version = '0.0.1-SNAPSHOT'
 	sourceCompatibility = '11'
 
+	repositories {
+		mavenCentral()
+	}
+
 	sourceSets {
 		main {
 			java { srcDirs = ['main'] }
@@ -33,5 +37,10 @@ subprojects {
 			println "   Resources: $sourceSets.test.resources.srcDirTrees"
 		}
 	}
+
+	test {
+		useJUnitPlatform()
+	}
+
 
 }
