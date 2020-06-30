@@ -22,7 +22,7 @@ report:
 
 # Start the app
 run:
-	@./gradlew bootRun
+	@./gradlew :applications:bootRun
 
 up:
 	@docker-compose -f docker-compose.dev.yml up -d

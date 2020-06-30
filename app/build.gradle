@@ -1,11 +1,13 @@
 plugins {
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
 	id 'java'
 }
 
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'org.springframework.boot'
 
 	group = 'pe.lacafetalab.pao'
 	version = '0.0.1-SNAPSHOT'
@@ -35,12 +37,12 @@ subprojects {
 
 
 	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.1.REALEASE'
-		implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.REALEASE'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.1.RELEASE'
+		implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
 		compileOnly 'org.projectlombok:lombok:1.18.12'
 		runtimeOnly 'org.postgresql:postgresql:42.2.14'
 		annotationProcessor 'org.projectlombok:lombok:1.18.12'
-		testImplementation('org.springframework.boot:spring-boot-starter-test:2.3.1.REALEASE') {
+		testImplementation('org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE') {
 			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 		}
 		if (project.name != "shared") {
@@ -48,9 +50,6 @@ subprojects {
 			//testImplementation project(":shared").sourceSets.test.output
 		}
 	}
-
-
-
 
 	task view_paths {
 		doLast { task ->
@@ -67,5 +66,12 @@ subprojects {
 		useJUnitPlatform()
 	}
 
+	bootJar {
+		enabled = false
+	}
+
+	jar {
+		enabled = true
+	}
 
 }
