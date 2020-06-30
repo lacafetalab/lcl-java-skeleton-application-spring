@@ -9,6 +9,9 @@ build:
 tasks:
 	./gradlew tasks
 
+view_paths:
+	./gradlew view_paths
+
 tests:
 	@make clean
 	@./gradlew test --warning-mode all
@@ -20,6 +23,20 @@ report:
 # Start the app
 run:
 	@./gradlew bootRun
+
+up:
+	@docker-compose -f docker-compose.dev.yml up -d
+
+down:
+	@docker-compose -f docker-compose.dev.yml down
+
+restart:
+	@make down
+	@make up
+
+
+log: ## Show container logs make : make log
+	@docker-compose -f docker-compose.dev.yml logs -f
 
 docker-kill: ## Execute migrate : make migrate
 	docker rm -f $$(docker ps -aq)
