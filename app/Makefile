@@ -14,7 +14,7 @@ view_paths:
 
 tests:
 	@make clean
-	@./gradlew test --warning-mode all
+	@./gradlew :applications:test --warning-mode all
 
 report:
 	@make clean

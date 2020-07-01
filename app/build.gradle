@@ -30,17 +30,6 @@ subprojects {
 		}
 	}
 
-	sourceSets {
-        main {
-            java { srcDirs = [ 'main' ] }
-            resources { srcDir 'resources' }
-        }
-        test {
-            java { srcDirs = [ 'test' ] }
-        }
-    }
-
-
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.1.RELEASE'
 		implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
@@ -50,9 +39,26 @@ subprojects {
 		testImplementation('org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE') {
 			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 		}
+
+		// Test
+		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+		testImplementation 'org.mockito:mockito-core:2.+'
+		testImplementation 'com.github.javafaker:javafaker:1.0.1'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+
 		if (project.name != "shared") {
 			implementation project(":shared")
 		//	//testImplementation project(":shared").sourceSets.test.output
+		}
+	}
+
+	sourceSets {
+		main {
+			java { srcDirs = [ 'main' ] }
+			resources { srcDir 'resources' }
+		}
+		test {
+			java { srcDirs = [ 'test' ] }
 		}
 	}
 
